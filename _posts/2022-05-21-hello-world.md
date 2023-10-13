@@ -22,4 +22,5 @@ int main(){
   hello world;133
 }
 ```
+  终于成了。
 ![pinkgirl](/assets/blog_res/2022-05-21-hello-world/pinkgirl.jpg)
