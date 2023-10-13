@@ -9,23 +9,23 @@ order: 4
      <h1>何嘉华</h1>
  </center>
 
-## 个人信息
+##### 个人信息
 
 - 性 别：男&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;年 龄：21
 
 - 手 机：19902358463&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;邮 箱：[19902358463@163.com](mailto:19902358463@163.com)
 
-- 专 业：物联网工程&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;岗 位：嵌入式软件工程师
+- 专 业：物联网工程&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;岗 位：嵌入式软件工程师
 - 博客：[hejiahua007.github.io](https://hejiahua007.github.io/)
 
-## 教育经历
+##### 教育经历
 
 - 广东海洋大学       2020.9~至今      物联网工程-本科
   
   - 专业成绩：GPA 3.5/4 
   - 排名：10/136
 
-## 专业技能
+##### 专业技能
 
 - 熟悉 C/C++，Python，了解 Java、
 
@@ -39,7 +39,7 @@ order: 4
 
 - 了解freeRTOS轻量级实时操作系统
 
-## 项目经历
+##### 项目经历
 
 1. 学校 - 基于GEC6818的⾳视频播放器 - 独立开发 - 2021.11 - 2022.01
    
@@ -69,11 +69,11 @@ order: 4
    
    - 实了语音唤醒、语音识别、语音合成等功能
    
-   - 学习笔记：[sleep](https://hejiahua007.github.io/categories/sleepyuyin/)
+   - 学习笔记：[hejiahua007.github.io/categories/sleepyuyin/](https://hejiahua007.github.io/categories/sleepyuyin/)
    
    - demo演示地址：[（错误）](https://www.bilibili.com/video/BV1pa411W7tq)
 
-## 校园经历
+##### 校园经历
 
 1. 学校防疫活动 - 志愿者 - 2022.5
    
@@ -90,11 +90,12 @@ order: 4
 ## 获奖经历
 
 - 学年专业三等奖学金 × 3
-
+- 证书: CET-4
 - PAT 60/100
 
 ## 其他信息
 
-- 喜欢钻研技术
-
-- 喜欢跑步、写反思、写作
+- 热爱钻研
+- 喜欢跑步，获得⼀次keep半⻢奖牌
+- 每日反思、写⽇记，喜欢碎碎念总结⽇常
+- 有⼀定的组织协调能⼒，曾多次担任⼩组组⻓完成课设
