@@ -69,7 +69,7 @@ order: 4
    
    - 实了语音唤醒、语音识别、语音合成等功能
    
-   - 学习笔记：[sleep](https://hejiahua.github.io/categories/sleep/)
+   - 学习笔记：[sleep](https://hejiahua007.github.io/categories/sleepyuyin/)
    
    - demo演示地址：[（错误）](https://www.bilibili.com/video/BV1pa411W7tq)
 
