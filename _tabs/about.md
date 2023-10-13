@@ -16,6 +16,7 @@ order: 4
 - 手 机：19902358463&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;邮 箱：[19902358463@163.com](mailto:19902358463@163.com)
 
 - 专 业：物联网工程&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;岗 位：嵌入式软件工程师
+- 博客：[hejiahua007.github.io](https://hejiahua007.github.io/)
 
 ## 教育经历
 
@@ -68,9 +69,9 @@ order: 4
    
    - 实了语音唤醒、语音识别、语音合成等功能
    
-   - 学习笔记：[Learn How To Make A 2D Platformer](https://hejiahua.github.io/categories/睡眠助理/)
+   - 学习笔记：[sleep](https://hejiahua.github.io/categories/sleep/)
    
-   - demo演示地址：[【UE5】2D平面游戏（错误）](https://www.bilibili.com/video/BV1pa411W7tq)
+   - demo演示地址：[（错误）](https://www.bilibili.com/video/BV1pa411W7tq)
 
 ## 校园经历
 
