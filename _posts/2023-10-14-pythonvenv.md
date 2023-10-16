@@ -43,7 +43,7 @@ mermaid: true
 
 将venv\pyvenv.cfg文件内的home修改为新venv的安装路径：
 
-![image](../assets/blog_res/2023-10-14-pythonvenv/image.png)
+![image](/assets/blog_res/2023-10-14-pythonvenv/image.png)
 
 如我这边使用conda安装的python，就直接将紫框中的内容修改为：
 
@@ -51,11 +51,11 @@ E:\Code\Python\Git\kohya_ss\conda\py3106。如果你是独立下载python安装�
 
 2：修改venv\Scripts\activate中的VIRTUAL_ENV指向新的venv路径
 
-![image-1](../assets/blog_res/2023-10-14-pythonvenv/image-1.png)
+![image-1](/assets/blog_res/2023-10-14-pythonvenv/image-1.png)
 
 3：修改venv\Scripts\activate.bat中的VIRTUAL_ENV指向新的venv路径
 
-![image-2](../assets/blog_res/2023-10-14-pythonvenv/image-2.png)
+![image-2](/assets/blog_res/2023-10-14-pythonvenv/image-2.png)
 
 4：重新安装pip
 
