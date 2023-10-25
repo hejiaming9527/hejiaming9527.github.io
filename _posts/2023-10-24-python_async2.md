@@ -103,10 +103,10 @@ mermaid: true
 
 注意这里是，一定程度上，意思是效果上一样（都能实现暂停的效果），但是功能上却不兼容。就是你不能在生成器中使用await，也不能在async 定义的协程中使用yield。
 
-![image](../assets/blog_res/2023-10-24-python_async2/image.png)
+![image](/assets/blog_res/2023-10-24-python_async2/image.png)
 普通函数中 不能使用 await
 
-![image-1](../assets/blog_res/2023-10-24-python_async2/image-1.png)
+![image-1](/assets/blog_res/2023-10-24-python_async2/image-1.png)
 普通函数中 不能使用 await
 
 除此之外呢，还有一点很重要的。
@@ -143,7 +143,7 @@ asyncio.sleep(n)，这货是asyncio自带的工具函数，他可以模拟IO阻�
 
 好了，接下来，开始验证。
 
-![image-2](../assets/blog_res/2023-10-24-python_async2/image-2.png)
+![image-2](/assets/blog_res/2023-10-24-python_async2/image-2.png)
 验证通过
 
 ## 绑定回调函数

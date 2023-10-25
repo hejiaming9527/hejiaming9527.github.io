@@ -34,7 +34,7 @@ https://www.reddit.com/user/adobecrack/comments/12jumpk/fl_studio_2092_producer_
 ## 如何安装 FL Studio 20.9.2 完整版
 
 1. 通过以下链接下载应用程序：www.yasir252.com，搜索image，进入这个，也就是网站：https://www.yasir252.com/software/fl-studio-20-full-version-terbaru-free/，然后下载
-![image](../assets/blog_res/2023-10-25-music_maker/image.png)
+![image](/assets/blog_res/2023-10-25-music_maker/image.png)
 
 2. 使用 WinRAR 提取FLST2092.rar文件
 
