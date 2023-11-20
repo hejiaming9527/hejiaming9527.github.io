@@ -22,8 +22,8 @@ order: 4
 
 - 广东海洋大学       2020.9~至今      物联网工程-本科
   
-  - 专业成绩：GPA 3.5/4 
-  - 排名：10/136
+  - 专业成绩：GPA 3.47/5
+  - 排名：15%
 
 ##### 专业技能
 
@@ -53,25 +53,41 @@ order: 4
    - 使⽤1个协调器、2种终端节点组建星型组⽹，终端节点可完成锁机控制，温度检测，⻛扇控制
    -  树莓派使⽤LVGL实现的交互界⾯，实现头像录⼊界⾯、基于sqlite3的数据管理界⾯、视频监控界⾯
 
-3. 学校 - 智慧农场环境监控 - 独立开发 - 2022.11 - 2022.12
+3. 学校 - 海洋环境监控 - 独立开发 - 2023.8 - 2023.9
 
-   基于上位机GEC6818+cc2530+esp8266+sqlite3+ONENET平台设计的智能农业系统，实现了农业信息的采集管理，其界⾯利⽤LVGL实现界⾯可视化，收集的农业数据利⽤MQTT上传⾄阿⾥云平台进⾏管理查看。
+   基于 GEC6818+sqlite3+ONENET 平台设计的海洋环境监控系统，实现了海洋信息的采集管理，其界⾯利⽤LVGL实现界⾯可视化，收集的数据利⽤MQTT 上传⾄阿⾥云平台进⾏管理查看。
    
    - 基于LVGL GUI的GEC6818实现了5个界⾯：登陆界⾯、主界⾯、信息收集界⾯、信息管理界⾯、⾳乐播放界⾯
    
-   - 基于sqlite3实现信息管理系统，实现⽤⼾账号管理以及农业信息的管理、其功能包括增删改查
+   - 基于sqlite3实现信息管理系统，实现⽤⼾账号管理以及环境信息的管理、其功能包括增删改查
    
    - 利⽤线程锁实现多线程协同⼯作：登录功能、数据接收功能、数据上传功能、⾳乐播放功能
 
-   - ZigBee使⽤1个协调器、3个终端节点组建星型⽹络，终端节点可以执⾏浇⽔，采集⼟壤温湿度信息，异常报警等功能
+   - 使⽤MQTT 协议或者 UDP 协议上传⾄ONENET 平台进⾏可视化管理、实现远程控制风扇、舵机、光照等设备
+  
+   - ZigBee 使⽤1 个协调器、3 个终端节点组建星型⽹络，终端节点可以采集温湿度信息，光照、二氧化碳等功能
 
-4. 学校 - 睡眠助理 - 独立开发 - 2023.10 - 至今
+4. 学校 - 智慧大棚 - 独立开发 - 2023.10 - 2023.10
    
-   - 实了语音唤醒、语音识别、语音合成等功能
+   基于 STM32F103+ESP8266+QT 设计的智能农业系统，实现了农业信息的采集管理，其界⾯利⽤QT 实现界⾯可视化，收集的农业数据利⽤TCP 上传⾄QT 服务器查看。
+
+   - 感知层实现温湿度、光照强度、二氧化碳浓度的数据采集，完成舵机、风扇的控制。
+   - 利⽤AT 指令控制 esp8266 进⾏⽹络通信，使⽤TCP 协议上传⾄QT 服务器进⾏可视化管理、实现远程控制舵机、风扇、光照等设备
+   - demo演示地址：[智能农业系统](https://www.bilibili.com/video/BV1TN4y1m7Lc/)
+
+5. 学校 - 睡眠助理 - 独立开发 - 2023.10 - 至今
    
-   - 学习笔记：[hejiahua007.github.io/categories/sleepyuyin/](https://hejiahua007.github.io/categories/sleepyuyin/)
+   - 树莓派连接麦克风，实现语音唤醒、语音识别、语音合成，接入智谱 api 实现语音对话。
+
+   - 实现温湿度、光照、二氧化碳、声响等信息的采集
+
+   - 提供语音播报，备忘录，天气预报，音乐播放等功能
    
-   - demo演示地址：[（错误）](https://www.bilibili.com/video/BV1pa411W7tq)
+   - 学习笔记：
+   - [hejiahua007.github.io/categories/sleepyuyin/](https://hejiahua007.github.io/categories/sleepyuyin/)
+   - [hejiahua007.github.io/tags/树莓派/](https://hejiahua007.github.io/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/)
+   
+   - demo演示地址：[PC端](https://www.bilibili.com/video/BV1CQ4y1t7wE/?buvid=XY331D6397C7DEA02365CD7AFDF1A668D1BDC&from_spmid=default-value&is_story_h5=false&mid=aUvfUUDHCnnk5epLZGWpsQ%3D%3D&p=1&plat_id=114&share_from=ugc&share_medium=android&share_plat=android&share_session_id=5cedfbe0-83fe-472e-95ec-220a93f0a9c1&share_source=WEIXIN&share_tag=s_i&spmid=united.player-video-detail.0.0&timestamp=1700474728&unique_k=mf1lIzg&up_id=507838758)
 
 ##### 校园经历
 
