@@ -256,6 +256,12 @@ uname -a查看linux的详细信息，像是架构，位，什么的。。。。
 
 总结：学习得控制时间和效率，不然卡了的时候容易上头，然后又效率极低，还很浪费时间。工作时间最好控制在一小时左右，最长不能超过两个小时。然后就必须得放松，转移一下注意力。学会提问，未来是属于gpt的，马斯克说的没错，未来不缺写代码的，因为会被机械说取代，我们需要抓住思路，使用决策的思路。
 
+补充：树莓派里面用Geany打开文件夹可以在工具里的插入管理器哪里选择文件插件，就可以打开文件夹了
+
+![image-3](/assets/blog_res/2023-10-26-raspberry_wake/image-3.png)
+
+![image-4](/assets/blog_res/2023-10-26-raspberry_wake/image-4.png)
+
 放个代码
 ``` c
 #!/usr/bin/env python3.10
@@ -341,3 +347,219 @@ def save_audio(data, filename="wake_word.wav"):
 keyword_wake_up()
 
 ```
+
+补充：
+geany配置python；这个默认运行的是python，也就是python2，而我们需要用到的是python3，所以需要在设置生成命令哪里修改python编译器的选择，如图，
+
+![image-5](/assets/blog_res/2023-10-26-raspberry_wake/image-5.png)
+
+第二次使用的代码，几乎没什么改进
+```c
+# -*- coding: utf-8 -*-
+
+from aip import AipSpeech
+
+import pvporcupine
+
+import pyaudio
+
+import struct
+
+import wave
+
+import json
+
+import base64
+
+import io
+
+import pvcobra
+
+import time
+
+porcupine_key = "cinmq/v7vHEzd3vrbTD9I24KiGgxbmUBXjxCcgG8kGnx8l48h57L6g=="
+
+porcupine_model = '../file/model/hello-chat_en_raspberry-pi_v3_0_0.ppn'
+
+def get_file_content(filePath):  # filePath  待读取文件名
+
+
+
+    with open(filePath, 'rb') as fp:
+
+
+
+        return fp.read()
+
+def sound_record():
+
+    porcupine = pvporcupine.create(access_key=porcupine_key, keyword_paths=[porcupine_model])
+
+    cobra = pvcobra.create(access_key=porcupine_key)
+
+    kws_audio = pyaudio.PyAudio()
+
+    audio_stream = kws_audio.open(
+
+        rate=porcupine.sample_rate,
+
+        channels=1,
+
+        format=pyaudio.paInt16,
+
+        input=True,
+
+        frames_per_buffer=porcupine.frame_length,
+
+        input_device_index=None,
+
+    )
+
+    is_voiced = 1
+
+    print("开始录音...")
+
+    recording = []
+
+    silence_count = 0
+
+
+
+    while is_voiced:
+
+        pcm = audio_stream.read(porcupine.frame_length)
+
+        _pcm = struct.unpack_from("h" * porcupine.frame_length, pcm)
+
+        is_voiced = cobra.process(_pcm)
+
+        print(is_voiced,silence_count)
+
+        silence_count = 0 if is_voiced > 0.5 else silence_count  + 1
+
+        if silence_count <= 100:
+
+            if silence_count < 70:
+
+                recording.extend(_pcm)
+
+        else:
+
+            break
+
+    filename = save_audio(recording)
+
+    audio_stream.stop_stream()
+
+    audio_stream.close()
+
+    porcupine.delete()
+
+    kws_audio.terminate()
+
+    # 保存录音结果为WAV文件
+
+    print(f"录音已保存:recorded_audio.wav")
+
+    return filename
+
+ 
+
+def save_audio(data, filename="../file/tmp/recorded_audio.wav"):
+
+    wf = wave.open(filename, 'wb')
+
+    wf.setnchannels(1)
+
+    wf.setsampwidth(2)
+
+    wf.setframerate(16000)  # Adjust the sample rate as needed
+
+    wf.writeframes(b''.join(struct.pack('h', sample) for sample in data))
+
+    wf.close()
+
+    return filename
+
+    
+
+''' 你的APPID AK SK  参数在申请的百度云语音服务的控制台查看'''
+
+APP_ID = '41921615'
+
+API_KEY = '066z1Dktz7pNjWFWrZ3CSV6z'
+
+SECRET_KEY = 'YloZH3xxv08TCVXGs13BoLP1gfPK0IRM'
+
+textPath = '../file/tmp/text.txt'
+
+# 新建一个AipSpeech
+
+client = AipSpeech(APP_ID, API_KEY, SECRET_KEY)
+
+def baidu_stt(filename):
+
+    result = client.asr(get_file_content(filename), 'wav', 16000, {'dev_pid': 1536})
+
+    if result['err_msg'] == 'success.':
+
+        print("stt successful")
+
+        word = result['result'][0].encode('utf-8')  # utf-8编码
+
+        wordStr = word.decode('utf-8')  # Decode the bytes to a string
+
+        if wordStr != '':
+
+            if wordStr[-3:] == '，':
+
+                print(wordStr[:-3])
+
+                with open(textPath, 'w', encoding='utf-8') as f:
+
+                    f.write(wordStr[:-3])
+
+            else:
+
+                print(wordStr)
+
+                with open(textPath, 'w', encoding='utf-8') as f:
+
+                    f.write(wordStr)
+
+        else:
+
+            print("音频文件不存在或格式错误")
+
+    else:
+
+        print("错误")
+
+    return wordStr
+
+def listen(model: str = "baidu"):
+
+    filepath = sound_record()
+
+    if model == "baidu":
+
+        user_words = baidu_stt(filepath)
+
+    else:
+
+        user_words = "Unsupported speech recognition model"
+
+    if user_words == "":
+
+        print("你什么都没说")
+
+    else:
+
+        print("你说了: ", user_words)
+
+    return user_words
+
+listen()
+
+```
+

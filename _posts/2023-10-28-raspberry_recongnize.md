@@ -18,6 +18,8 @@ mermaid: true
 
 1.安装环境
 
+pip3 install pvcobra（成功）
+
 pip3 install tencentcloud-sdk-python
 
 结果速度极慢，去github下载包，https://github.com/TencentCloud/tencentcloud-sdk-python
@@ -77,6 +79,14 @@ Downloading https://files.pythonhosted.org/packages/4c/dd/2234eab22353ffc7d94e8d
 error: Download error for https://files.pythonhosted.org/packages/4c/dd/2234eab22353ffc7d94e8d13177aaa050113286e93e7b40eae01fbf7c3d9/certifi-2023.7.22-py3-none-any.whl#sha256=92d6037539857d8206b8f6ae472e8b77db8058fec5937a1ef3f54304089edbb9: [Errno 101] Network is unreachable
 
 最后换了百度的语音识别，安装了他的SDK。
+
+安装api所需的库
+
+https://ai.baidu.com/sdk#asr
+
+下载包到树莓派中，然后进入解压好的文件夹sudo python setup.py install即可
+
+![image-2](/assets/blog_res/2023-10-28-raspberry_recongnize/image-2.png)
 
 2023年10月29日10:59:34
 
