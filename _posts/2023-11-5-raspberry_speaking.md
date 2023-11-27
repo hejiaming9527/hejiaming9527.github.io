@@ -215,6 +215,8 @@ pip3 install librosa==0.8.0
     #查看系统位数
     root@raspberrypi:/home/pi/Desktop# getconf LONG_BIT
     32
+    #检查 C++ 编译器版本
+    gcc -v
 
 配置软件源
 
@@ -275,6 +277,9 @@ free -m 查看swap空间大小（96左右）
 sudo apt-get install dphys-swapfile 
 
 CONF_SWAPSIZE=4096 
+
+sudo /etc/init.d/dphys-swapfile restart
+
 
 ![image-6](/assets/blog_res/2023-11-5-raspberry_speaking/image-6.png)
 
@@ -1018,12 +1023,77 @@ pytorch加载模型时出现…xxx.pth is a zip archive (did you mean to use tor
 
 xxx.pth来自pytorch1.6或更高的版本。1.6之后pytorch默认使用zip文件格式来保存权重文件，导致这些权重文件无法直接被1.5及以下的pytorch加载。
 
-    解决办法1（失败）
+    解决办法1（失败，因为这个模型已经下载好的，这个解决办法是在训练时改一下代码使得生成的模型生成为飞压缩文件的格式）
     解决方法：在新版本中将模型加载后，再存储为非压缩文件，再用老版本加载：
     import torch
     state_dict = torch.load("xxx.pth")	#xxx.pth或者xxx.pt就是你想改掉的权重文件
     torch.save(state_dict, "xxx.pth", _use_new_zipfile_serialization=False)
 
+    解决办法2：升级pytorch为1.6
+    原torch：
+    pip list
+    ...
+    torch              1.3.0a0+de394b6
+    torchvision        0.4.1a0+a263704
+    ...
+
+    先卸载
+    pip uninstall torch torchvision
+
+    参照https://github.com/kevinchan04/Pytorch_ARM（失败，git下载太久了，或许可以想象改善网络的办法）
+
+    参照https://blog.csdn.net/qq_36622589/article/details/121941036（成功）
+
+![image-10](/assets/blog_res/2023-11-5-raspberry_speaking/image-10.png)
+
+舒服
+
+还是google牛逼
+
+继续
+
+    报错
+    pygame 2.0.0 (SDL 2.0.9, python 3.7.3)
+    Hello from the pygame community. https://www.pygame.org/contribute.html
+    INFO:root:Loaded checkpoint '../file/model/G_953000.pth' (iteration 630)
+    DEBUG:asyncio:Using selector: EpollSelector
+    Building prefix dict from the default dictionary ...
+    DEBUG:jieba:Building prefix dict from the default dictionary ...
+    Dumping model to file cache /tmp/jieba.cache
+    DEBUG:jieba:Dumping model to file cache /tmp/jieba.cache
+    Loading model cost 3.370 seconds.
+    DEBUG:jieba:Loading model cost 3.370 seconds.
+    Prefix dict has been built successfully.
+    DEBUG:jieba:Prefix dict has been built successfully.
+    VITS :  生成成功! 生成耗时 25.27 s
+    speaking.py:30: RuntimeWarning: use mixer: libSDL2_mixer-2.0.so.0: cannot open shared object file: No such file or directory
+    (ImportError: libSDL2_mixer-2.0.so.0: cannot open shared object file: No such file or directory)
+    pygame.mixer.music.load(audio_file_name)
+    Traceback (most recent call last):
+    File "speaking.py", line 130, in <module>
+        speak("好的，主人！", 0)
+    File "speaking.py", line 127, in speak
+        asyncio.run(start(input_str,language))
+    File "/usr/lib/python3.7/asyncio/runners.py", line 43, in run
+        return loop.run_until_complete(main)
+    File "/usr/lib/python3.7/asyncio/base_events.py", line 584, in run_until_complete
+        return future.result()
+    File "speaking.py", line 121, in start
+        play_audio("../file/tmp/output.wav")
+    File "speaking.py", line 30, in play_audio
+        pygame.mixer.music.load(audio_file_name)
+    File "/home/pi/Desktop/sleep/lib/python3.7/site-packages/pygame/__init__.py", line 59, in __getattr__
+        raise NotImplementedError(missing_msg)
+    NotImplementedError: mixer module not available (ImportError: libSDL2_mixer-2.0.so.0: cannot open shared object file: No such file or directory)
+    
+    ImportError: libSDL2_mixer-2.0.so.0: cannot open shared object file: No such file or directory：这个错误表示缺少名为libSDL2_mixer-2.0.so.0的共享对象文件，导致无法加载pygame.mixer模块。该模块用于音频播放功能。
+
+    这个问题可能是由于缺少SDL2_mixer库或库文件路径配置错误引起的。您可以尝试以下解决方法：
+
+    - 确保已正确安装SDL2_mixer库。您可以通过运行sudo apt-get install libsdl2-mixer-2.0-0命令来安装它。（成功）
+    - 检查SDL2_mixer库文件的路径配置。您可以尝试设置LD_LIBRARY_PATH环境变量，将其指向包含SDL2_mixer库文件的目录。例如，运行export LD_LIBRARY_PATH=/usr/local/lib命令。（未尝试）
+
+再次尝试，结果合成成功。
 
 
 

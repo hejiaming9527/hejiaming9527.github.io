@@ -193,11 +193,11 @@ alsamixer
 
 **配置相应的库**
 
-sudo apt install python3 python3-pip python3-all-dev python3-pyaudio portaudio19-dev libsndfile1
+sudo apt install python3 python3-pip python3-all-dev python3-pyaudio portaudio19-dev libsndfile1（成功）
 
-sudo pip3 install pvporcupine（貌似要梯子，不然下不动）
+sudo pip3 install pvporcupine（很慢，要注意安装到了哪里，这个并不是安装在虚拟环境里面的！）
 
-    pip3 install PyAudio（失败）
+    pip3 install PyAudio（失败，第三次成功，因该是源的问题）
     pip3 install PyAudio -i https://pypi.tuna.tsinghua.edu.cn/simple（失败）
 
     下载pyaudio轮子，在下面这个网址中检索（Ctrl+f）pyaudio，点击

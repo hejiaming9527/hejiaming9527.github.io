@@ -236,3 +236,23 @@ listen()
 ![image-1](/assets/blog_res/2023-10-28-raspberry_recongnize/image-1.png)
 
 识别效果还可以，就只是不知道为什么标点符号不见，但先不管，即便没有标点，chat应该也能看得懂。
+
+报错：
+
+    开始录音...
+    0.018264278769493103 0
+    Traceback (most recent call last):
+    File "wav_recognize.py", line 123, in <module>
+        listen()
+    File "wav_recognize.py", line 108, in listen
+        filepath = sound_record()
+    File "wav_recognize.py", line 46, in sound_record
+        pcm = audio_stream.read(porcupine.frame_length)
+    File "/home/pi/Desktop/sleep/lib/python3.7/site-packages/pyaudio/__init__.py", line 571, in read
+        exception_on_overflow)
+    OSError: [Errno -9981] Input overflowed
+
+很眼熟的报错，但我之前没有记录这个错误
+
+
+
