@@ -95,7 +95,7 @@ sudo pip3 install pvporcupine（很慢，要注意安装到了哪里，这个并
 
 pip3 install PyAudio（第三次成功，因该是源的问题）
 
-![image](../assets/blog_res/2023-11-27-raspberry_finial/image.png)
+![image](/assets/blog_res/2023-11-27-raspberry_finial/image.png)
 
 ## 语音识别
 
