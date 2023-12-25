@@ -252,7 +252,44 @@ listen()
         exception_on_overflow)
     OSError: [Errno -9981] Input overflowed
 
-很眼熟的报错，但我之前没有记录这个错误
+很眼熟的报错，但我之前没有记录这个错误，有点气。
+
+解决（使用1和3就成功了）：
+
+    1. Error: [Errno -9981] Input overflowed，表明输入音频流溢出，即尝试读取的音频数据量超过了当前可用的数据。这可能是因为你的代码以比音频捕获速率更快的速度读取音频数据。
+    调整每缓冲帧数：修改audio_stream.open调用中的frames_per_buffer参数。较小的值可能有助于防止溢出。尝试不同的值，找到响应性和避免溢出之间的平衡。
+    audio_stream = kws_audio.open(
+    rate=porcupine.sample_rate,
+    channels=1,
+    format=pyaudio.paInt16,
+    input=True,
+    frames_per_buffer=1024,  # 调整此值
+    input_device_index=None,
+    )
+
+    2.使用非阻塞模式：尝试在读取音频数据时使用非阻塞模式：
+    while True:
+    try:
+        pcm = audio_stream.read(porcupine.frame_length, exception_on_overflow=False)
+        if pcm:
+            _pcm = struct.unpack_from("h" * porcupine.frame_length, pcm)
+            is_voiced = cobra.process(_pcm)
+            print(is_voiced, silence_count)
+            silence_count = 0 if is_voiced > 0.5 else silence_count + 1
+            if silence_count <= 100:
+                if silence_count < 70:
+                    recording.extend(_pcm)
+            else:
+                break
+    except IOError as e:
+        # 处理 IOError，例如打印异常
+        print(f"Error reading audio: {e}")
+
+    3.调整休眠时长：检查你的循环中的休眠时长，确保它适当。太长的休眠可能会导致数据积压。
+    time.sleep(0.1)  # 调整休眠时长
+
+
+
 
 
 

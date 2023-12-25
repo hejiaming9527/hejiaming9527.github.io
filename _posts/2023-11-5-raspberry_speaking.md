@@ -1093,11 +1093,277 @@ xxx.pth来自pytorch1.6或更高的版本。1.6之后pytorch默认使用zip文�
     - 确保已正确安装SDL2_mixer库。您可以通过运行sudo apt-get install libsdl2-mixer-2.0-0命令来安装它。（成功）
     - 检查SDL2_mixer库文件的路径配置。您可以尝试设置LD_LIBRARY_PATH环境变量，将其指向包含SDL2_mixer库文件的目录。例如，运行export LD_LIBRARY_PATH=/usr/local/lib命令。（未尝试）
 
-再次尝试，结果合成成功。
+再次尝试，结果合成成功。但播放失败
+
+很奇怪，树莓派上合成的语音，用pygame播放不了，说是格式不对，但传到电脑用pygame播放却可以，电脑上合成的语音，可以播放但用树莓派上的pygame却不能够播放。
+
+挺烦的，当初都能做出来，现在却卡住了。
+
+``` c++
+import pygame
+import wave
+import pyaudio
+
+#推荐用，好
+def play_audio(audio_file_name):
+    # 初始化pygame
+    pygame.init()
+    # 设置音频文件
+    pygame.mixer.music.load(audio_file_name)
+    # 播放音频
+    pygame.mixer.music.play()
+    # 等待音频播放完毕
+    while pygame.mixer.music.get_busy():
+        pygame.time.Clock().tick(10)
+    # 退出pygame
+    pygame.quit()
+#不推荐，差
+def play_audio2():
+    chunk = 1024  
+    wf = wave.open(r"/home/pi/Desktop/sleep/file/music/music1.wav", 'rb')
+    p = pyaudio.PyAudio()
+    stream = p.open(format=p.get_format_from_width(wf.getsampwidth()), channels=wf.getnchannels(),
+                    rate=wf.getframerate(), output=True)
+
+    data = wf.readframes(chunk)  # 读取数据
+    print(data)
+    while data != b'':  # 播放
+        stream.write(data)
+        data = wf.readframes(chunk)
+        print('while循环中！')
+        print(data)
+    stream.stop_stream()  # 停止数据流
+    stream.close()
+    p.terminate()  # 关闭 PyAudio
+
+```
+接连尝试了多个播放方法后，发现效果都不佳，最终尝试改变wav的格式，最后成功播放合成的语音。
+
+    Traceback (most recent call last):
+    File "musicplay.py", line 77, in <module>
+        play_audio('/home/pi/Desktop/sleep/file/music/music3.wav')
+    File "musicplay.py", line 9, in play_audio
+        pygame.mixer.music.load(audio_file_name)
+    pygame.error: Unknown WAVE data format
+
+报错的原因：使用pygame播放，结果wave格式未知
+
+我以为整个文件都已经偏离了wave的范围
+
+    pygame 2.0.0 (SDL 2.0.9, python 3.7.3)
+    Hello from the pygame community. https://www.pygame.org/contribute.html
+    Traceback (most recent call last):
+    File "musicplay.py", line 41, in <module>
+        play_audio2()
+    File "musicplay.py", line 24, in play_audio2
+        wf = wave.open(r"/home/pi/Desktop/sleep/file/music/music3.wav", 'rb')
+    File "/usr/lib/python3.7/wave.py", line 510, in open
+        return Wave_read(f)
+    File "/usr/lib/python3.7/wave.py", line 164, in __init__
+        self.initfp(f)
+    File "/usr/lib/python3.7/wave.py", line 144, in initfp
+        self._read_fmt_chunk(chunk)
+    File "/usr/lib/python3.7/wave.py", line 269, in _read_fmt_chunk
+        raise Error('unknown format: %r' % (wFormatTag,))
+    wave.Error: unknown format: 3
+
+然后使用pyaudio播放，错误提示表明 wave 模块在处理音频文件时遇到了未知的格式码 3。通常来说，WAV 文件的格式码为 1，表示 PCM 格式，而其他格式码则较为少见。
+
+    gpt建议：
+
+    检查文件格式：
+    确保 /home/pi/Desktop/sleep/file/music/music3.wav 文件是一个有效的 WAV 文件。你可以使用其他工具或库来检查文件格式，确保它是一个正确格式的 WAV 文件。
+
+    尝试其他 WAV 文件：
+    使用另一个 WAV 文件测试脚本，最好是一个你知道是 PCM 格式（格式码 1）的文件。这可以帮助确定问题是特定于文件还是更普遍的问题。
+
+    检查 WAV 文件属性：
+    使用工具或库检查有问题的 WAV 文件的属性，例如采样宽度、通道数和采样率。确保这些属性与 PyAudio 的期望相符。
+
+    转换文件格式：
+    如果文件格式有问题，考虑将其转换为标准的 PCM WAV 格式。你可以使用像 Audacity 这样的工具或 Pydub 这样的库来进行转换。
+
+我意识到可以通过转换文件格式来解决问题
+
+于是乎查看wav文件的格式
+
+    def check_audio(file_path):
+        with wave.open(file_path, 'rb') as wf:
+            print("采样宽度:", wf.getsampwidth())
+            print("通道数:", wf.getnchannels())
+            print("帧速率:", wf.getframerate())
+
+    check_audio("/home/pi/Desktop/sleep/file/music/music1.wav")#能正常播放
+    check_audio("/home/pi/Desktop/sleep/file/music/music3.wav")#不能正常播放
+
+    结果：
+    采样宽度: 2
+    通道数: 2
+    帧速率: 22050
+    Traceback (most recent call last):
+    File "musicplay.py", line 60, in <module>
+        check_audio("/home/pi/Desktop/sleep/file/music/music3.wav")
+    File "musicplay.py", line 54, in check_audio
+        with wave.open(file_path, 'rb') as wf:
+    File "/usr/lib/python3.7/wave.py", line 510, in open
+        return Wave_read(f)
+    File "/usr/lib/python3.7/wave.py", line 164, in __init__
+        self.initfp(f)
+    File "/usr/lib/python3.7/wave.py", line 144, in initfp
+        self._read_fmt_chunk(chunk)
+    File "/usr/lib/python3.7/wave.py", line 269, in _read_fmt_chunk
+        raise Error('unknown format: %r' % (wFormatTag,))
+    wave.Error: unknown format: 3
+
+转换格式
+
+    from pydub import AudioSegment#安装：pip3 install pydub
+
+    def convert_audio_format(input_file, output_file, sample_width, channels):
+        audio = AudioSegment.from_file(input_file)
+        audio = audio.set_sample_width(sample_width)
+        audio = audio.set_channels(channels)
+        audio.export(output_file, format="wav")
+    # 替换文件路径和参数
+    input_file_path = "/home/pi/Desktop/sleep/file/music/music3.wav"
+    output_file_path = "/home/pi/Desktop/sleep/file/music/music3_converted.wav"
+    sample_width = 2  # 与 music1.wav 相同的采样宽度
+    channels = 2      # 与 music1.wav 相同的通道数
+    convert_audio_format(input_file_path, output_file_path, sample_width, channels)
+    check_audio(output_file_path)
+
+查看结果
+
+    采样宽度: 2
+    通道数: 2
+    帧速率: 22050
+    采样宽度: 2
+    通道数: 2
+    帧速率: 22050
+
+结果也可以播放。语音合成也就到此结束了，也就是多加了一个格式转化
+
+## 百度语音合成
+
+```c
+# coding=utf-8
+import sys
+import json
+import pygame
+#IS_PY3 标志用于检测是否在 Python 3 环境中运行。
+#根据 Python 版本导入对应的 urllib 库。
+IS_PY3 = sys.version_info.major == 3
+if IS_PY3:
+    from urllib.request import urlopen
+    from urllib.request import Request
+    from urllib.error import URLError
+    from urllib.parse import urlencode
+    from urllib.parse import quote_plus
+API_KEY = ''
+SECRET_KEY = ''
+TEXT = ""
+# 发音人选择, 基础音库：0为度小美，1为度小宇，3为度逍遥，4为度丫丫，
+# 精品音库：5为度小娇，103为度米朵，106为度博文，110为度小童，111为度小萌，默认为度小美
+PER = 4
+# 语速，取值0-15，默认为5中语速
+SPD = 5
+# 音调，取值0-15，默认为5中语调
+PIT = 5
+# 音量，取值0-9，默认为5中音量
+VOL = 5
+# 下载的文件格式, 3：mp3(default) 4： pcm-16k 5： pcm-8k 6. wav
+AUE = 6
+FORMATS = {3: "mp3", 4: "pcm", 5: "pcm", 6: "wav"}
+FORMAT = FORMATS[AUE]
+CUID = "q3gH8c4olzE4v27UEHfEEYvbWpRaxIWQ"
+TTS_URL = 'http://tsn.baidu.com/text2audio'
+#定义一个自定义异常类 DemoError，用于处理可能的异常情况。
+class DemoError(Exception):
+    pass
+"""  TOKEN start """
+TOKEN_URL = 'http://aip.baidubce.com/oauth/2.0/token'
+SCOPE = 'audio_tts_post'  # 有此scope表示有tts能力，没有请在网页里勾选
+def play_audio(audio_file_name):
+    # 初始化pygame
+    pygame.init()
+    # 设置音频文件
+    pygame.mixer.music.load(audio_file_name)
+    # 播放音频
+    pygame.mixer.music.play()
+    # 等待音频播放完毕
+    while pygame.mixer.music.get_busy():
+        pygame.time.Clock().tick(10)
+    # 退出pygame
+    pygame.quit()
+def fetch_token():
+    print("fetch token begin")
+    params = {'grant_type': 'client_credentials',
+              'client_id': API_KEY,
+              'client_secret': SECRET_KEY}
+    post_data = urlencode(params)
+    if (IS_PY3):
+        post_data = post_data.encode('utf-8')
+    req = Request(TOKEN_URL, post_data)
+    try:
+        f = urlopen(req, timeout=5)
+        result_str = f.read()
+    except URLError as err:
+        print('token http response http code : ' + str(err.code))
+        result_str = err.read()
+    if (IS_PY3):
+        result_str = result_str.decode()
+
+    print(result_str)
+    result = json.loads(result_str)
+    print(result)
+    if ('access_token' in result.keys() and 'scope' in result.keys()):
+        if not SCOPE in result['scope'].split(' '):
+            raise DemoError('scope is not correct')
+        print('SUCCESS WITH TOKEN: %s ; EXPIRES IN SECONDS: %s' % (result['access_token'], result['expires_in']))
+        return result['access_token']
+    else:
+        raise DemoError('MAYBE API_KEY or SECRET_KEY not correct: access_token or scope not found in token response')
 
 
+"""  TOKEN end """
 
+def speak2(TEXT):
+    token = fetch_token()
+    tex = quote_plus(TEXT)  # 此处TEXT需要两次urlencode
+    print(tex)
+    params = {'tok': token, 'tex': tex, 'per': PER, 'spd': SPD, 'pit': PIT, 'vol': VOL, 'aue': AUE, 'cuid': CUID,
+              'lan': 'zh', 'ctp': 1}  # lan ctp 固定参数
 
+    data = urlencode(params)
+    print('test on Web Browser' + TTS_URL + '?' + data)
 
+    req = Request(TTS_URL, data.encode('utf-8'))
+    has_error = False
+    try:
+        f = urlopen(req)
+        result_str = f.read()
 
+        headers = dict((name.lower(), value) for name, value in f.headers.items())
+
+        has_error = ('content-type' not in headers.keys() or headers['content-type'].find('audio/') < 0)
+    except  URLError as err:
+        print('asr http response http code : ' + str(err.code))
+        result_str = err.read()
+        has_error = True
+    save_file = "../file/tmp/output2.txt" if has_error else '../file/tmp/output2.' + FORMAT
+#    save_file = "error.txt" if has_error else 'result.' + FORMAT
+    with open(save_file, 'wb') as of:
+        of.write(result_str)
+    if has_error:
+        if (IS_PY3):
+            result_str = str(result_str, 'utf-8')
+        print("tts api  error:" + result_str)
+
+    print("result saved as :" + save_file)
+
+    play_audio("../file/tmp/output2.wav")
+
+#speak2("你好，缓缓")
+```
+可以使用，效果比使用模型好，感觉使用VITS模型好像有点傻逼了，但好歹也是多了一个喜欢的音色的选择
 
