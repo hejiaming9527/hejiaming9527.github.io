@@ -1,5 +1,5 @@
 ---
-title:安卓————前言
+title: 安卓————前言
 date: 2023-12-25 10:00:00 +0800
 categories: [安卓]
 tags: [安卓]
@@ -46,3 +46,4 @@ mermaid: true
 
 ![image-7](/assets/blog_res/2023-12-25-Android_fenxi/image-7.png)
 
+## 4.数据库管理界面
