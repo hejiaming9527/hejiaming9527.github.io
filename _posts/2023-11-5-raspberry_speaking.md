@@ -276,6 +276,8 @@ free -m 查看swap空间大小（96左右）
 
 sudo apt-get install dphys-swapfile 
 
+sudo nano /etc/dphys-swapfile
+
 CONF_SWAPSIZE=4096 
 
 sudo /etc/init.d/dphys-swapfile restart
@@ -809,7 +811,7 @@ pip3 install scipy==1.6.3
 
 1.为了让这个仓库能够应用，这必须在更新之前显式接受。更多细节请参阅 apt-secure(8) 手册。
 
-解决方案：sudo apt update,然后按Y
+解决方案：sudo apt update,然后按Y（成功）
 
 2.证书不被信任，树莓派清华源 Certificate verification failed: The certificate is NOT trusted
 
