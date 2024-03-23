@@ -69,4 +69,7 @@ ps:若是已经连接成功过wifi，tcp，esp一开机就会自动连接上
 D:\git_cangku\毕设\stm32_sleep\USER，这个是可以用的
 
 ---
+![image](../assets/blog_res/2024-3-21-bisheceshi1/image.png)
+
+
 
