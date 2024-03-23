@@ -23,7 +23,7 @@ Yolov5 官方代码中，给出的目标检测网络中一共有4个版本，分
 
 Yolov5s 网络是 Yolov5 系列中深度最小，特征图的宽度最小的网络。后面的3种都是在此基础上不断加深，不断加宽。Yolov5 的网络结构图如下（源于江大白大佬的结构图）：
 
-![image](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image.png)
+![image](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image.png)
 
 上图即 Yolov5 的网络结构图，可以看出，还是分为输入端、Backbone、Neck、Prediction四个部分。
 
@@ -49,7 +49,7 @@ Yolov5-Lite 算法的模型结构如图下。该算法去除了 Focus 结构层�
 
 1 作者使用树莓派4B的 Camera 直接在捕获需要识别目标物的图片信息（捕获期间转动待识别的目标物体）；
 
-![image-1](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-1.png)
+![image-1](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-1.png)
 
 树莓派4B的 Camera 定时捕获照片的python代码如下：
 
@@ -106,15 +106,15 @@ if __name__ == "__main__":
 
 按动 “c” 开始采集待识别目标图像，按动 “q” 退出摄像头 Camera 的图片采集；
 
-![image-2](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-2.png)
+![image-2](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-2.png)
 
-![image-3](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-3.png)
+![image-3](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-3.png)
 
-![image-4](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-4.png)
+![image-4](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-4.png)
 
 2 将捕获到的待识别目标物照片传输到PC端，利用 Labelme 软件进行标注（Labelme不会使用的建议相关博客）；
 
-![image-5](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-5.png)
+![image-5](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-5.png)
 
 作者的标注了 3 类目标：drug，prime，glue；读者朋友可以根据自己实际情况标注自己需要的数据集！由于我们标注的数据的标签 label 默认是 JSON 格式的不能被 YOLO 系列的神经网络模型直接进行利用训练。
 
@@ -201,9 +201,9 @@ if __name__ == "__main__":
 
 我们需要根据自己的需要自定义字典 dic_lab，字典中的 ratio = 0.9 的作用是将数据集拆分成训练集和验证集 9：1。读者朋友可以根据自己的实际情况去修改字典的标签内容，成功执行 lablemetoyolo.py 代码后效果如下：
 
-![image-6](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-6.png)
+![image-6](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-6.png)
 
-![image-7](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-7.png)
+![image-7](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-7.png)
 
 labels文件夹下的标签成功转换了 YOLO 系列可以使用的 label 标签，到此时就已经成功准备好我们需要的训练集了！
 
@@ -338,12 +338,12 @@ sudo apt install python3-opencv
 ## gpu加速 
 
 查阅电脑显卡版本
-![image-9](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-9.png)
+![image-9](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-9.png)
 
 电脑显卡版本：NVIDIA GeForce MX330
 
 卸载NVDIA的相关程序
-![image-10](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-10.png)
+![image-10](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-10.png)
 
 **学习计划**
 在一小时内基本学习 GPU 和 CUDA，我建议你可以按照以下步骤来进行：
@@ -439,7 +439,7 @@ CUDA编程的基本步骤：
 
 nvidia-smi
 运行结果
-![image-11](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-11.png)
+![image-11](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-11.png)
 
 在nvidia-smi的输出中，以下部分给出了关于NVIDIA软件和驱动的版本信息：
 
@@ -449,7 +449,7 @@ nvidia-smi
 
 总的来说，这些版本信息对于确保软件和硬件的兼容性、进行故障排除、以及确定是否需要软件或驱动程序更新都很重要。
 
-![image-12](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-12.png)
+![image-12](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-12.png)
 
 2. 查看设备管理器 (仅限Windows)
 
@@ -495,7 +495,7 @@ https://link.zhihu.com/?target=https%3A//developer.nvidia.com/cuda-gpus
 
 按正常方法，我的这个显卡在官方那边显示，是不具备安装cuda的。但我还是像试一试
 
-![image-13](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-13.png)
+![image-13](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-13.png)
 
 安装的cuda版本最高支持为12.4.74
 
@@ -503,10 +503,10 @@ https://link.zhihu.com/?target=https%3A//developer.nvidia.com/cuda-gpus
 两个都安装完后，测试，
 
 nvcc -V
-![image-15](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-15.png)
+![image-15](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-15.png)
 
 切换到C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v1.3\extras\demo_suite目录下，命令行执行bandwidthTest.exe，查看结果是否如下图，显示Pass则安装成功。
-![image-16](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-16.png)
+![image-16](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-16.png)
 
 cuda和cudnna安装成功，接下来就是在python安装对于的环境了，但今晚先用着cpu跑着先，明天早上看看怎么样。明天弄一下pycharm的gpu环境，看看能不能跑gpu。
 
@@ -547,7 +547,7 @@ python export.py --weights best.pt
 pip install -U onnx-simplifier --user
 python -m onnxsim best.onnx e.onnx
 
-![image-17](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-17.png)
+![image-17](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-17.png)
 
 树莓派部署lite模型
 
@@ -564,11 +564,11 @@ python -m onnxsim best.onnx e.onnx
 wget -O onnxruntime-1.9.1-cp37-none-linux_armv7l.whl https://github.com/PINTO0309/onnxruntime4raspberrypi/releases/download/v1.9.1/onnxruntime-1.9.1-cp37-none-linux_armv7l.whl_np1195
 
 pip3 install onnxruntime-1.9.1-cp37-none-linux_armv7l.whl
-![image-18](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-18.png)
+![image-18](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-18.png)
 
 2.安装cv2
 pip3 install --upgrade opencv-python（报错）
-![image-19](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-19.png)
+![image-19](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-19.png)
 
 看来没那么容易了
 
@@ -586,11 +586,11 @@ pip3 install --upgrade opencv-python（报错）
 
 gpt分析说因为某种原因而停止，但报错没有具体说明是什么原因。
 
-![image-20](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-20.png)
+![image-20](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-20.png)
 
 在geany中设置环境
 
-![image-21](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-21.png)
+![image-21](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-21.png)
 
 跑代码运行时报错，发现onnxruntime能用，但cv2不能用，原因是cv2安装在系统级环境里了，而onnxruntime安装在虚拟环境里，此刻我正在用的编译是虚拟环境的。
 
@@ -604,10 +604,10 @@ gpt分析说因为某种原因而停止，但报错没有具体说明是什么�
 
 系统用的是 armv7l 架构
 
-![image-23](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-23.png)
+![image-23](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-23.png)
 安装这个opencv_python-4.5.5.62-cp37-cp37m-linux_armv7l.whl （成功）
 
-![image-22](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-22.png)
+![image-22](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-22.png)
 
 部署成功
 
@@ -615,19 +615,19 @@ gpt分析说因为某种原因而停止，但报错没有具体说明是什么�
 
 经研读评论区，发现很多人都遇到过这个问题，说是onnx转化的时候出现的问题，可能是代码的问题，于是根据建议去github使用其他人的export.py进行onnx模型转化，最终成功
 
-![image-26](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-26.png)
+![image-26](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-26.png)
 
 总结：
 1.查阅的资料要注意辨别，过去常常犯了一个错误，就是没有分辨资料是否过时，使用尝试的资料常常各个时间段不一，最好使用google搜索，特别是搜寻最近一年的那种比较新的资料。
 
-![image-24](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-24.png)
+![image-24](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-24.png)
 
 2.答案近在咫尺，就是手动将轮子下载，然后安装即可，但我偏偏相信了pip3 install opencv-python，我以为这两个方法是等同的，pip install opencv-python失败，我以为那么手动安装轮子自然也就会失败，我想应该是pip install opencv-python安装的应该是linux通用系统的版本，安装的话可能要手动指定，类似于pip install opencv_python-4.5.5.62-cp37-cp37m-linux_armv7l...这类的吧，符合python版本，符合系统架构、与numpy对应。
 我记得pip是一个帮助包自动安装的辅助工具，过去我太信任他了，忽略了它可能安装错误版本的可能，以为它会自动的帮我根据系统分辨出要安装的版本，结果到最后还是要自己手动的选择。pip能帮忙偷一部分的懒。
 
 3.寻找讲课老师的仓库还是很有用的，有时他会将一些包整理的他的gitee上。遇到错误，去github上寻找现成的也比较好，特别是现成的代码，正确的代码。若是能够注意一下，能省去很多是时间。
 
-![image-25](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-25.png)
+![image-25](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-25.png)
 
 现在尝试训练用自己的数据，训练自己的模型、部署自己的模型
 
@@ -650,13 +650,13 @@ https://blog.csdn.net/weixin_46502301/article/details/115829811
 
 安装成功，过程中遇到了一些问题，如
 
-![image-27](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-27.png)
+![image-27](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-27.png)
 
 这问题没有解决，我是从github给的资料弄好的，通过虚拟环境那一个，make qt5py3不行，好像没有make这个东西，于是打开了makefile文件手动执行，pyrcc4 -o line/resources.py resources.qrc，然后按步骤来，成功，后面发现这和下面那个方法很像。
 
 运行老是崩溃，重新规范搞一次，还是崩溃，应该要改代码
 
-![image-28](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-28.png)
+![image-28](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-28.png)
 
 成功
 
@@ -666,13 +666,13 @@ https://blog.csdn.net/weixin_46502301/article/details/115829811
 
 训练成功，部署成功，拍了6张图片识别，成功了一大半，其中有一个识别错了，把手机识别成了书本，有两张没有识别出来书本，或许是因为手有遮挡的缘故，也就是数据集不够好。
 
-![image-29](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-29.png)
+![image-29](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-29.png)
 
 视频也可以识别，但书和手机似乎很混淆，不太行的样子。
 
-![image-30](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-30.png)
+![image-30](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-30.png)
 
-![image-31](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-31.png)
+![image-31](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-31.png)
 
 ## gpu加速2
 
@@ -688,7 +688,7 @@ https://blog.csdn.net/weixin_46502301/article/details/115829811
 
 nvcc -V
 
-![image-32](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-32.png)
+![image-32](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-32.png)
 
 https://blog.csdn.net/weixin_64605288/article/details/125705684?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0-125705684-blog-89462160.pc_relevant_multi_platform_whitelistv3&spm=1001.2101.3001.4242.1&utm_relevant_index=2
 
@@ -723,11 +723,11 @@ https://blog.csdn.net/weixin_64605288/article/details/125705684?utm_medium=distr
 
 在训练模型环境里安装torch-2.1.0+cu121-cp310-cp310-win_amd64.whl
 
-![image-33](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-33.png)
+![image-33](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-33.png)
 
 开始训练，报错
 
-![image-34](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-34.png)
+![image-34](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-34.png)
 
 共享内存文件映射错误（Shared Memory File Mapping Error）：
 这个错误通常与multiprocessing模块和共享内存有关。在Python中，当使用多进程进行数据加载时，通常会使用共享内存来传递数据。然而，出现了一个问题，导致共享内存文件映射失败。这可能是由于环境变量或操作系统限制引起的。
@@ -735,7 +735,7 @@ https://blog.csdn.net/weixin_64605288/article/details/125705684?utm_medium=distr
 CUDA内存不足（CUDA Out of Memory Error）：
 在进行训练时，CUDA内存耗尽。这通常发生在模型和/或数据太大，超出了GPU可用内存的情况下。这可能是因为模型太大，批次大小过大，图像尺寸过大等原因导致的。
 
-![image-35](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-35.png)
+![image-35](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-35.png)
 
 第二天起来，再次尝试训练一次，居然错误不一样了。
 
@@ -798,7 +798,7 @@ NotImplementedError: Could not run 'torchvision::nms' with arguments from the 'C
 
 NotImplementedError：无法使用来自“CUDA”后端的参数运行“torchvision：：nms”。这可能是因为此后端不存在运算符，或者在选择性/自定义生成过程中被省略（如果使用自定义生成）。如果您是在移动设备上使用 PyTorch 的 Facebook 员工，请访问 https://fburl.com/ptmfixes 了解可能的解决方案。'torchvision：：nms' 仅适用于以下后端： [CPU、QuantizedCPU、BackendSelect、Python、FuncTorchDynamicLayerBackMode、Functionalize、Named、Conjugate、Negative、ZeroTensor、ADInplaceOrView、AutogradOther、AutogradCPU、AutogradCUDA、AutogradXLA、AutogradMPS、AutogradXPU、AutogradHPU、AutogradLazy、AutogradMeta、Tracer、AutocastCPU、AutocastCUDA、FuncTorchBatched、FuncTorchVmapMode、Batched、VmapMode、FuncTorchGradWrapper、PythonTLSSnapshot、FuncTorchDynamicLayerFrontMode、PreDispatch, PythonDispatcher].
 
-![image-36](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-36.png)
+![image-36](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-36.png)
 
 看不上很懂，对给gpt解释一下：
 
@@ -813,7 +813,7 @@ NotImplementedError：无法使用来自“CUDA”后端的参数运行“torchv
 
 https://github.com/ultralytics/ultralytics/issues/5059 这里也说了应该是torchvision的问题，社区氛围真的友善，且规范，问个问题都要有最小可复现的模型，瞻仰大佬
 
-![image-37](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-37.png)
+![image-37](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-37.png)
 
 根据https://blog.csdn.net/shiwanghualuo/article/details/122860521
 
@@ -825,7 +825,7 @@ https://github.com/ultralytics/ultralytics/issues/5059 这里也说了应该是t
 
 训练出来的模型可以用，不过还是那么不准确，书和收集傻傻分不清，可能是数据集里面的这两个东西有一半的部分被手遮挡了的缘故。
 
-![image-38](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-38.png)
+![image-38](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-38.png)
 
 总结：
 1.gpu只能帮助分析，特别是gpt3.5，用的都是过时的资料库，或许可以下载些插件什么的，查一些偏的深的bug还得是社区谷歌才行。
@@ -852,7 +852,7 @@ https://zhuanlan.zhihu.com/p/55364815
 
 一脸懵，了解一下分类
 
-![image-39](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-39.png)
+![image-39](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-39.png)
 
     当你在 Kaggle 上浏览数据集时，这些分类代表不同类型的数据集。让我为你解释一下每个类别的含义，并帮助你选择适合目标检测的数据集：
 
@@ -948,17 +948,17 @@ IEEE VIP CUP 2021 数据集：https://www.kaggle.com/datasets/awsaf49/ieee-vip-c
 上网找了一会，很难找到相应的数据集。还是用树莓派拍照，100张黑暗、10张有一点光源、100张明亮条件
 
 训练部署结果：
-![image-40](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-40.png)
+![image-40](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-40.png)
 
-![image-41](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-41.png)
+![image-41](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-41.png)
 
-![image-42](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-42.png)
+![image-42](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-42.png)
 
-![image-43](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-43.png)
+![image-43](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-43.png)
 
-![image-44](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-44.png)
+![image-44](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-44.png)
 
-![image-45](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-45.png)
+![image-45](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-45.png)
 
 基本能用，对于有三者的情况基本能够识别，但准确率有待提高。而对于大片的光源，像是电脑，则难以分辨是明亮还是有一丝光亮。后续有待提高。
 
@@ -1110,18 +1110,18 @@ print(f"All .txt files in {directory_path} have been updated.")
 
 训练好了玩手机的识别模型：结果如下
 
-![image-46](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-46.png)
-![image-47](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-47.png)
-![image-48](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-48.png)
-![image-49](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-49.png)
-![image-50](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-50.png)
-![image-51](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-51.png)
-![image-52](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-52.png)
-![image-53](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-53.png)
-![image-54](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-54.png)
-![image-55](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-55.png)
-![image-56](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-56.png)
-![image-57](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-57.png)
+![image-46](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-46.png)
+![image-47](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-47.png)
+![image-48](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-48.png)
+![image-49](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-49.png)
+![image-50](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-50.png)
+![image-51](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-51.png)
+![image-52](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-52.png)
+![image-53](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-53.png)
+![image-54](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-54.png)
+![image-55](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-55.png)
+![image-56](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-56.png)
+![image-57](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-57.png)
 
 然后用之前老师范例教导训练的模型进行识别，试试失败的效果，结果发现也和上面识别失败的结果一样，就是图片被蓝色框框覆盖。
 
@@ -1129,19 +1129,19 @@ print(f"All .txt files in {directory_path} have been updated.")
 
 想来书籍的识别也是如此，数据集太偏，不符合实际情况，导致一些很明显的情况却识别不出来。
 
-![image-58](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-58.png)
-![image-59](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-59.png)
-![image-60](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-60.png)
-![image-61](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-61.png)
-![image-62](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-62.png)
-![image-63](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-63.png)
-![image-64](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-64.png)
-![image-65](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-65.png)
-![image-66](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-66.png)
-![image-67](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-67.png)
-![image-68](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-68.png)
-![image-69](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-69.png)
-![image-70](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-70.png)
+![image-58](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-58.png)
+![image-59](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-59.png)
+![image-60](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-60.png)
+![image-61](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-61.png)
+![image-62](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-62.png)
+![image-63](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-63.png)
+![image-64](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-64.png)
+![image-65](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-65.png)
+![image-66](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-66.png)
+![image-67](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-67.png)
+![image-68](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-68.png)
+![image-69](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-69.png)
+![image-70](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-70.png)
 原因：1.数据集不够丰富、2.树莓派摄像头不够清晰、手抖拍不清晰
 
 先完成手机的识别，再然后书本，再然后结合。
