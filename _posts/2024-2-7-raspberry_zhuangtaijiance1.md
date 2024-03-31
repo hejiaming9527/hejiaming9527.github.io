@@ -1244,13 +1244,13 @@ print(f"All .txt files in {directory_path} have been updated.")
 ```py
 from PIL import Image, ImageChops
 
-img = Image.open("../pic/2.jpg")
+img = Image.open("/pic/2.jpg")
 inv_img = ImageChops.invert(img)    #像素值反转
 inv_img.show()
 ```
 
-![image-71](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-71.png)
-![image-72](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-72.png)
+![image-71](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-71.png)
+![image-72](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-72.png)
 
 ### 色彩抖动
 
@@ -1281,7 +1281,7 @@ def randomColor(image, saturation=0, brightness=0, contrast=0, sharpness=0):
         ImageEnhance.Sharpness(image).enhance(random_factor)  # 调整图像锐度
     return image
 
-img = cv2.imread("../pic/2.jpg")
+img = cv2.imread("/pic/2.jpg")
 cj_img = Image.fromarray(img)
 sa_img = np.asarray(randomColor(cj_img, saturation=1))
 br_img = np.asarray(randomColor(cj_img, brightness=1))
@@ -1309,10 +1309,10 @@ plt.subplot(2,3,6), plt.imshow(rc_img)
 plt.axis('off'); plt.title('调整所有项')
 plt.show()
 ```
-![2](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/2.jpg)
-![3](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/3.jpg)
-![image-73](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-73.png)
-![image-74](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-74.png)
+![2](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/2.jpg)
+![3](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/3.jpg)
+![image-73](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-73.png)
+![image-74](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-74.png)
 
 这个有点不对劲
 
@@ -1340,7 +1340,7 @@ def randomColor(image, saturation=0, brightness=0, contrast=0, sharpness=0):
         image = ImageEnhance.Sharpness(image).enhance(random_factor)  # 调整图像锐度
     return image
 
-img = cv2.imread("../pic/2.jpg")
+img = cv2.imread("/pic/2.jpg")
 img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)  # 转换颜色空间为RGB
 cj_img = Image.fromarray(img_rgb)
 sa_img = np.asarray(randomColor(cj_img, saturation=1))
@@ -1375,8 +1375,8 @@ plt.title('调整所有项')
 plt.tight_layout()
 plt.show()
 ```
-![image-75](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-75.png)
-![image-76](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-76.png)
+![image-75](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-75.png)
+![image-76](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-76.png)
 
 ### 色彩增强
 
@@ -1474,12 +1474,12 @@ def zmIceColor(I, ratio=4, radius=3):  # rgb三通道分别增强，ratio是对�
 
 
 if __name__ == '__main__':
-    m = zmIceColor(cv2.imread("../pic/2.jpg") / 255.0) * 255
-    cv2.imwrite('../pic/zmIce.jpg', m)
+    m = zmIceColor(cv2.imread("/pic/2.jpg") / 255.0) * 255
+    cv2.imwrite('/pic/zmIce.jpg', m)
 ```
 
-![image-77](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-77.png)
-![image-78](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-78.png)
+![image-77](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-77.png)
+![image-78](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-78.png)
 
 ### RGB颜色增强
 
@@ -1512,7 +1512,7 @@ def hist_ave_2(src):
     return np.interp(src.flatten(),L,cdf).reshape(src.shape)
 
 
-img=np.array(Image.open("../pic/2.jpg"))
+img=np.array(Image.open("/pic/2.jpg"))
 img_co=img.copy()
 i_r,i_g,i_b=img[:,:,0],img[:,:,1],img[:,:,2]
 i_r=hist_ave_2(i_r)
@@ -1563,7 +1563,7 @@ def hist_ave_2(src):
     return np.interp(src.flatten(),L,cdf).reshape(src.shape)
 
 
-img=cv2.imread("../pic/2.jpg")
+img=cv2.imread("/pic/2.jpg")
 img_=img.copy()
 img_=cv2.cvtColor(img_,cv2.COLOR_BGR2HSV)
 #对I通道进行处理
@@ -1616,20 +1616,20 @@ def dicrease_color(img):
 
 
 # 读入图像
-img = cv2.imread("../pic/3.jpg")
+img = cv2.imread("/pic/3.jpg")
 img = cv2.resize(img,(800,600))
 
 # 减色处理，也叫色彩量化
 out = dicrease_color(img)
-cv2.imwrite("../pic/2.jpg", out)
+cv2.imwrite("/pic/2.jpg", out)
 cv2.imshow("result", out)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 ```
 
-![image-79](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-79.png)
+![image-79](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-79.png)
 
-![image-80](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-80.png)
+![image-80](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-80.png)
 
 ### 彩色空间转换（RGB与HSI）
 
@@ -1678,7 +1678,7 @@ def label_def():
 
 
 # 读取图片
-img_orig = cv.imread('../pic/2.jpg', 1)    # 读取彩色图片
+img_orig = cv.imread('/pic/2.jpg', 1)    # 读取彩色图片
 
 
 # RGB到HSI的变换
@@ -1785,10 +1785,10 @@ if __name__ == '__main__':                                           # 运行当
     plt.show()
 ```
 
-![image-81](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-81.png)
-![image-82](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-82.png)
-![image-83](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-83.png)
-![image-84](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-84.png)
+![image-81](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-81.png)
+![image-82](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-82.png)
+![image-83](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-83.png)
+![image-84](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-84.png)
 
 ### 彩色图像直方图均衡化
 
@@ -1826,7 +1826,7 @@ def hisEqulColor(img):
     cv2.merge(channels, ycrcb)
     cv2.cvtColor(ycrcb, cv2.COLOR_YCR_CB2BGR, img)
     return img
-im = cv2.imread('../pic/2.jpg')
+im = cv2.imread('/pic/2.jpg')
 print(np.shape(im))
 im=cv2.resize(im,(800,600))
 cv2.imshow('im1', im)
@@ -1835,11 +1835,11 @@ eq = hisEqulColor(im)
 cv2.imshow('image2',eq )
 cv2.waitKey(0)
 ```
-![image-88](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-88.png)
-![image-85](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-85.png)
+![image-88](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-88.png)
+![image-85](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-85.png)
 
-![image-86](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-86.png)
-![image-87](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-87.png)
+![image-86](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-86.png)
+![image-87](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-87.png)
 
 ### 方法2（翻转，色域变换，噪声，大小改变，模糊，色彩抖动，均衡化）
 
@@ -2003,7 +2003,7 @@ if __name__ == "__main__":
       print('done')
     '''
 ```
-![image-89](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-89.png)
+![image-89](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-89.png)
 
     一、增加噪声
 
@@ -2086,7 +2086,7 @@ def hist(image):
         image_equal_clo = cv2.merge([r1, g1, b1])
         return image_equal_clo
 ```
-![image-90](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-90.png)
+![image-90](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-90.png)
 
 
 ### 分析总结
@@ -2632,20 +2632,20 @@ def train(hyp, opt, device, tb_writer=None):
 2.将代码放入项目中
 
 **色彩抖动代码调整**
-![image-95](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-95.png)
-![image-91](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-91.png)
-![image-92](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-92.png)
+![image-95](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-95.png)
+![image-91](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-91.png)
+![image-92](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-92.png)
 
 **色彩增强调整**
 
-![image-93](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-93.png)
-![image-94](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-94.png)
-![image-96](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-96.png)
+![image-93](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-93.png)
+![image-94](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-94.png)
+![image-96](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-96.png)
 
 **彩色图像直方图均衡化**
-![image-98](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-98.png)
-![image-99](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-99.png)
-![image-100](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-100.png)
+![image-98](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-98.png)
+![image-99](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-99.png)
+![image-100](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-100.png)
 
 目测排名：色彩增强》彩色图像直方图均衡化》色彩抖动代码调整
 
@@ -2764,8 +2764,8 @@ def zmIceColor(I, ratio=4, radius=3):  # rgb三通道分别增强，ratio是对�
 
 部署测试结果：
 
-![image-101](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-101.png)
-![image-102](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-102.png)
+![image-101](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-101.png)
+![image-102](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-102.png)
 
 妥妥的失败了，但好歹能用。下次尝试将训练步骤分为2部分进行，继续使用色彩增强的方法，再进行一次。
 
@@ -2773,27 +2773,27 @@ def zmIceColor(I, ratio=4, radius=3):  # rgb三通道分别增强，ratio是对�
 
 部署：
 
-![image-103](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-103.png)
+![image-103](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-103.png)
 
-![image-104](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-104.png)
+![image-104](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-104.png)
 
-![image-105](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-105.png)
+![image-105](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-105.png)
 
-![image-106](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-106.png)
+![image-106](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-106.png)
 
-![image-107](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-107.png)
+![image-107](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-107.png)
 
-![image-108](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-108.png)
+![image-108](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-108.png)
 
-![image-109](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-109.png)
+![image-109](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-109.png)
 
-![image-110](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-110.png)
+![image-110](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-110.png)
 
-![image-111](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-111.png)
+![image-111](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-111.png)
 
-![image-112](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-112.png)
+![image-112](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-112.png)
 
-![image-113](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-113.png)
+![image-113](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-113.png)
 
 结果：精度有了很大的提升，针对一些标准的图片，可以很好的识别，针对实时的视频检测，从完全无法识别，变为了偶尔可以识别，这里可以通过增加数据集来提升精度。可以打分为1.3（1为仅仅只能识别标准图片，难以识别显示情况图片）
 
@@ -2842,21 +2842,21 @@ print("Image processing completed.")
 完成图片的预处理，然后训练模型，耗时0.9h
 
 部署：
-![image-114](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-114.png)
-![image-115](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-115.png)
-![image-116](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-116.png)
-![image-117](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-117.png)
-![image-118](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-118.png)
+![image-114](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-114.png)
+![image-115](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-115.png)
+![image-116](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-116.png)
+![image-117](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-117.png)
+![image-118](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-118.png)
 
-![image-119](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-119.png)
-![image-120](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-120.png)
-![image-121](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-121.png)
-![image-12](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-122.png)
-![image-122](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-123.png)
-![image-123](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-124.png)
-![image-124](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-125.png)
-![image-125](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-126.png)
-![image-126](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-127.png)
+![image-119](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-119.png)
+![image-120](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-120.png)
+![image-121](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-121.png)
+![image-12](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-122.png)
+![image-122](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-123.png)
+![image-123](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-124.png)
+![image-124](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-125.png)
+![image-125](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-126.png)
+![image-126](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-127.png)
 
 结果：目测标准图片的准确度有所下降，而实时的视频检测比色彩增强的稍微精准一点。综合评分：1.3
 
@@ -2903,17 +2903,17 @@ print("All images have been processed and saved.")
 
 ```
 训练部署，结果：
-![image-128](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-128.png)
-![image-129](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-129.png)
-![image-130](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-130.png)
-![image-131](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-131.png)
-![image-132](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-132.png)
-![image-133](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-133.png)
-![image-134](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-134.png)
-![image-135](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-135.png)
-![image-136](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-136.png)
-![image-137](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-137.png)
-![image-138](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-138.png)
+![image-128](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-128.png)
+![image-129](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-129.png)
+![image-130](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-130.png)
+![image-131](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-131.png)
+![image-132](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-132.png)
+![image-133](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-133.png)
+![image-134](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-134.png)
+![image-135](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-135.png)
+![image-136](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-136.png)
+![image-137](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-137.png)
+![image-138](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-138.png)
 
 结果：标准图片识别较差，实时视频识别差了一点，评分12.
 
@@ -2929,7 +2929,7 @@ https://zhuanlan.zhihu.com/p/677564907
 
 你的模型架构足够好了。总而言之，不要试图和一屋子的博士比聪明。相反，在尝试改进模型之前，请确保数据的质量是一流的。
 
-![image-139](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-139.png)
+![image-139](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-139.png)
 
 其实不论模型好与不好，想要更进一步，就应该聚焦于怎么做，而不是为什么先，聚焦于数据集，影响因素，而非模型。所以可以先不管这些性能的评估指标，先看看怎么提高先。分为：数据集方面和训练设置方面
 
@@ -2953,8 +2953,8 @@ https://zhuanlan.zhihu.com/p/677564907
 
 9.  宽高比 极端不是好样本。
 
-![image-140](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-140.png)
-![image-141](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-141.png)
+![image-140](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-140.png)
+![image-141](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-141.png)
 
 分析；按照这些规则来看，上网上找的手机的数据集还是很合适的，几乎满足了所有规则，还将人物切分出来，去除多余的环境影响。或许标注都是应该如此
 
@@ -3005,8 +3005,173 @@ test_images_a文件里面包含了4089张测试图片，有的有手机，有的
     通过这种方式加入背景图像并合理调整训练集的组成，可以有效地提升模型对于复杂背景下目标的识别能力，进而提高整体的检测性能。
 
 将收集的1000张图片（彩色图像直方图均衡化）和标准的8700张还有99张背景图片拿去训练，
+md，不知道怎么回事，突然间就关机了，就像上次那样，突然间就停机了，都已经训练了7个小时了。
+
+问题：我跑9000张图片数据集的yolov5-lite模型的时候，突然间，电脑就像是熄火停机了，然后我按回车键发现电脑正在重新开机，这害我模型训练到一半就停了。上一次我也遇到过，就跑着跑着，程序就没了，现在想来应该也是重新开机了。这是什么原因
+
+    这种情况可能是由于电脑出现了系统崩溃或者硬件故障导致的。造成电脑重新启动的原因可能有很多，包括但不限于：
+
+    过热: 长时间运行大型计算任务，特别是涉及大量数据处理的深度学习任务，可能导致电脑过热而触发了保护机制，导致自动关机或重启。
+
+    电源问题: 电源供应不稳定或者电源适配器故障可能导致电脑突然关机或重新启动。
+
+    内存不足: 如果你的电脑内存不足以处理大规模的数据集，运行深度学习模型时可能会导致系统崩溃或重新启动。
+
+    软件问题: 某些软件或驱动程序的冲突或错误可能导致系统崩溃。
+
+    硬件故障: 电脑的硬件部件出现故障，比如CPU、内存、硬盘等，可能会导致系统不稳定或崩溃。
+
+    针对这个问题，你可以尝试以下方法来解决：
+
+    检查硬件: 确保你的电脑硬件状态良好，包括内存、CPU、散热器等。清理电脑内部灰尘，确保良好的散热，可以减少过热导致的问题。
+
+    监控系统状态: 使用系统监控工具来监测电脑的温度、内存使用情况等，确保在运行大型任务时不会超过系统承受范围。
+
+    更新驱动程序和软件: 确保你的操作系统、驱动程序和相关软件都是最新版本，以减少可能的软件冲突或错误。
+
+    降低负载: 如果可能的话，尝试减少运行其他任务的负载，专注于模型训练任务，以减少系统崩溃的可能性。
+
+    检查电源: 如果怀疑是电源问题导致的系统重启，可以尝试更换电源适配器或者检查电源供应是否稳定。
+
+还好之前读了一下代码，知道有恢复训练的可能，不然又得重来。
+
+    在PyCharm中运行 `train.py` 脚本并设置 `--resume` 参数的步骤如下:
+
+    1. 打开PyCharm,创建一个新的Python项目或打开现有的项目。
+
+    2. 找到 `train.py` 文件,右击并选择 `Run 'train.py'`。
+
+    3. 在运行配置窗口中,点击 `Edit Configurations` 按钮。
+
+    4. 在配置窗口中,找到 `train.py` 的运行配置,并在 `Parameters` 字段中添加 `--resume` 参数:
+
+    ```
+    --resume
+    ```
+
+    5. 点击 `OK` 保存配置。
+
+    6. 现在,当你再次运行 `train.py` 时,它将使用 `--resume` 参数继续之前的训练。
+
+    如果你不确定检查点文件的具体路径,你可以不填写任何值,只添加 `--resume`。这样脚本会尝试从最近的检查点文件恢复训练。
+
+    如果你知道检查点文件的路径,可以在 `--resume` 后面添加文件路径,例如:
+
+    ```
+    --resume path/to/checkpoint.pth
+    ```
+
+    确保在PyCharm的运行配置窗口中正确设置了 `--resume` 参数,然后运行 `train.py` 即可继续之前的训练。
+
+![image-142](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-142.png)
+
+    Resuming training from .\runs\train\exp\weights\last.pt
+    YOLOv5  2024-2-2 torch 2.1.0+cu121 CUDA:0 (NVIDIA GeForce MX330, 2047.875MB)
+
+    Namespace(weights='.\\runs\\train\\exp\\weights\\last.pt', cfg='', data='data/mydata.yaml', hyp='data/hyp.scratch.yaml', epochs=300, batch_size=16, img_size=[320, 320], rect=False, resume=True, nosave=False, notest=False, noautoanchor=False, evolve=False, bucket='', cache_images=False, image_weights=False, device='0', multi_scale=False, single_cls=False, adam=False, sync_bn=False, local_rank=-1, workers=8, project='runs/train', entity=None, name='exp', exist_ok=False, quad=False, linear_lr=False, label_smoothing=0.0, upload_dataset=False, bbox_interval=-1, save_period=-1, artifact_alias='latest', world_size=1, global_rank=-1, save_dir='runs\\train\\exp', total_batch_size=16)
+    tensorboard: Start with 'tensorboard --logdir runs/train', view at http://localhost:6006/
+    hyperparameters: lr0=0.001, lrf=0.2, momentum=0.937, weight_decay=0.0005, warmup_epochs=3.0, warmup_momentum=0.8, warmup_bias_lr=0.1, box=0.05, cls=0.5, cls_pw=1.0, obj=1.0, obj_pw=1.0, iou_t=0.2, anchor_t=4.0, fl_gamma=0.0, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, degrees=0.0, translate=0.1, scale=0.5, shear=0.0, perspective=0.0, flipud=0.0, fliplr=0.5, mosaic=0.2, mixup=0.0
+    wandb: Install Weights & Biases for YOLOv5 logging with 'pip install wandb' (recommended)
+
+    正在从 .\runs\train\exp\weights\last.pt 恢复训练
+    YOLOv5  2024-2-2 torch 2.1.0+cu121 CUDA:0 (NVIDIA GeForce MX330, 2047.875MB)
+
+    参数设置如下：
+    - 权重文件路径: '.\\runs\\train\\exp\\weights\\last.pt'
+    - 模型配置文件路径: ''
+    - 数据集配置文件路径: 'data/mydata.yaml'
+    - 超参数文件路径: 'data/hyp.scratch.yaml'
+    - 总训练轮数: 300
+    - 批量大小: 16
+    - 图像尺寸: [320, 320]
+    - 是否使用矩形训练: 否
+    - 是否恢复之前的训练: 是
+    - 是否仅保存最终检查点: 否
+    - 是否仅在最后一个 epoch 进行测试: 否
+    - 是否禁用自动锚框检查: 否
+    - 是否进行超参数进化: 否
+    - 云存储桶路径: ''
+    - 是否缓存图像以加快训练速度: 否
+    - 是否使用图像权重: 否
+    - 设备选择: '0' (指定为 CUDA 设备 0)
+    - 是否启用多尺度训练: 否
+    - 是否将多类别数据视为单类别数据进行训练: 否
+    - 是否使用 Adam 优化器: 否
+    - 是否使用同步批量归一化: 否
+    - 当前本地进程排名: -1
+    - 数据加载器最大工作进程数: 8
+    - 项目名称: 'runs/train'
+    - 实体名称: None
+    - 训练名称: 'exp'
+    - 是否允许存在相同项目名称: 否
+    - 是否使用四进程数据加载器: 否
+    - 是否使用线性学习率调整: 否
+    - 标签平滑度: 0.0
+    - 是否上传数据集: 否
+    - 边界框图像记录间隔: -1
+    - 模型保存周期: -1
+    - 数据集工件别名: 'latest'
+    - 分布式训练进程数: 1
+    - 全局排名: -1
+    - 检查点保存目录: 'runs\\train\\exp'
+
+    初始超参数设置如下：
+    - 初始学习率: 0.001
+    - 最终 OneCycleLR 学习率: 0.2
+    - 动量: 0.937
+    - 权重衰减: 0.0005
+    - 渐变增强的训练轮数: 3.0
+    - 渐变增强的动量: 0.8
+    - 渐变增强的偏置学习率: 0.1
+    - 框损失增益: 0.05
+    - 分类损失增益: 0.5
+    - 分类 BCELoss 正权重: 1.0
+    - 目标损失增益: 1.0
+    - 目标 BCELoss 正权重: 1.0
+    - IoU 训练阈值: 0.2
+    - 锚框倍数阈值: 4.0
+    - 焦点损失 gamma: 0.0
+    - 图像 HSV-Hue 增强: 0.015
+    - 图像 HSV-Saturation 增强: 0.7
+    - 图像 HSV-Value 增强: 0.4
+    - 图像旋转角度: 0.0
+    - 图像平移范围: 0.1
+    - 图像缩放范围: 0.5
+    - 图像剪切范围: 0.0
+    - 图像透视变换范围: 0.0
+    - 图像上下翻转概率: 0.0
+    - 图像左右翻转概率: 0.5
+    - 图像拼接概率: 0.2
+    - 图像混合概率: 0.0
+
+    提示：安装 Weights & Biases 以记录 YOLOv5 的日志信息，请执行 'pip install wandb'。
+
+是否缓存图像以加快训练速度: 否，这里似乎还可以加速训练。这个训练完后，可以考虑一下使用谷歌的额度来训练了。
+
+视频结果：
+
+![image-143](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-143.png)
+
+![image-144](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-144.png)
+
+![image-145](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-145.png)
+
+![image-146](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-146.png)
+
+![image-147](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-147.png)
+
+![alt text](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-148.png)
+
+...（标准的有一种没有测出来，后面现实拍摄的图片测出来了一张）
+![alt text](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-149.png)
+
+![alt text](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-150.png)
 
 
+结果：标准图片没有测出1张，现实拍摄图片测出1张，视频检测效果有所提升效果，综合评分14.3分。
 
+图片的检测一如既往，而视频也是，但两者都有所提升，视频竖着正面拿手机可以识别，但竖着侧面的话就难以识别，但好在横着拿手机，也就是打王者的拿手机姿势，就很容易识别出来，不论是正的还是侧的。基本的拿手机的姿势都可以识别，但有时也会识别不出来，说不出原因。
 
+当我两根手指拿手机的时候，发现难以识别，原来识别的更多是手掌“握着”手机，接下来我可以增加特定动作的数据集，来弥补不足，还要增加不同手势“握”手机的数据集。
 
+现在训练耗费时间很长，差不多18个小时，在解决数据集问题的同时，可以考虑一下学习如何使用谷歌的额度。
