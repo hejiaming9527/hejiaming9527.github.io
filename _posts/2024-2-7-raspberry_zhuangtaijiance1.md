@@ -1248,7 +1248,7 @@ img = Image.open("/pic/2.jpg")
 inv_img = ImageChops.invert(img)    #像素值反转
 inv_img.show()
 ```
-
+![image-70](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-70.png)
 ![image-71](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-71.png)
 ![image-72](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-72.png)
 
