@@ -3183,12 +3183,12 @@ md，不知道怎么回事，突然间就关机了，就像上次那样，突然
 收集了2000多张，训练数据集上万，训练得到的模型效果很好，放在了/home/pi/Desktop/test/models/zhuangtai5，但仍然有两个问题：
 1.少部分部分姿势拿手机仍然无法识别
 
-![alt text](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-151.png)
+![alt text](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-151.png)
 
 2.能够识别手中拿的“手机”模样的状态，不清楚别是怎么解决的
 
-![alt text](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-152.png)
+![alt text](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-152.png)
 
-![alt text](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-153.png)
+![alt text](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-153.png)
 
 勉强过关了，可以应付一下毕设了。后续再解决这两个问题。
