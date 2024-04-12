@@ -1,5 +1,5 @@
 ---
-title: 树莓派——YOLOv5-Lite1 数据集制作
+title: 树莓派——YOLOv5-Lite1 数据集制作（手机）
 date: 2024-2-7 15:04:00 +0800
 categories: [树莓派]
 tags: [树莓派]
@@ -1248,7 +1248,7 @@ img = Image.open("/pic/2.jpg")
 inv_img = ImageChops.invert(img)    #像素值反转
 inv_img.show()
 ```
-![image-70](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-70.png)
+
 ![image-71](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-71.png)
 ![image-72](/assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-72.png)
 
@@ -3175,3 +3175,20 @@ md，不知道怎么回事，突然间就关机了，就像上次那样，突然
 当我两根手指拿手机的时候，发现难以识别，原来识别的更多是手掌“握着”手机，接下来我可以增加特定动作的数据集，来弥补不足，还要增加不同手势“握”手机的数据集。
 
 现在训练耗费时间很长，差不多18个小时，在解决数据集问题的同时，可以考虑一下学习如何使用谷歌的额度。
+
+数据集关键词：床上玩手机、椅子上玩手机、地铁玩手机、教室玩手机、旅游玩手机、飞机玩手机、在饭店玩手机、吃饭时玩手机、酒吧玩手机、办公室玩手机、厕所玩手机、医院玩手机、宿舍玩手机、咖啡玩手机、自行车玩手机、工地玩手机、老人玩手机、孩子玩手机、上班玩手机、走路玩手机、街上玩手机、模特玩手机、
+
+数据集关键词：侧身玩手机、拿手机拍照的人、自拍的人、对镜自拍 女、对镜自拍 女男、对镜自拍 情侣、健身自拍、瑜伽自拍、跑步自拍、草坪自拍、深林自拍、公园自拍、旅游自拍、景点自拍、爬山自拍、游乐园自拍、上班自拍、海 自拍、沙滩自拍、卧室 自拍、阳台自拍、厨房 自拍、
+
+收集了2000多张，训练数据集上万，训练得到的模型效果很好，放在了/home/pi/Desktop/test/models/zhuangtai5，但仍然有两个问题：
+1.少部分部分姿势拿手机仍然无法识别
+
+![alt text](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-151.png)
+
+2.能够识别手中拿的“手机”模样的状态，不清楚别是怎么解决的
+
+![alt text](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-152.png)
+
+![alt text](../assets/blog_res/2024-2-7-raspberry_zhuangtaijiance1/image-153.png)
+
+勉强过关了，可以应付一下毕设了。后续再解决这两个问题。
