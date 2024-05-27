@@ -151,6 +151,28 @@ def run_server(pipe):
                 commands[command]()
 ```
 
+    2024-04-27 15:38:53.804 25399-25399 AndroidRuntime          com.example.myapplication            E  FATAL EXCEPTION: main
+                                                                                                        Process: com.example.myapplication, PID: 25399
+                                                                                                        android.os.NetworkOnMainThreadException
+                                                                                                            at android.os.StrictMode$AndroidBlockGuardPolicy.onNetwork(StrictMode.java:1565)
+                                                                                                            at java.net.SocketOutputStream.socketWrite(SocketOutputStream.java:116)
+                                                                                                            at java.net.SocketOutputStream.write(SocketOutputStream.java:149)
+                                                                                                            at com.example.myapplication.JiajuActivity.onItemClick(JiajuActivity.java:291)
+                                                                                                            at com.example.myapplication.JiajuListAdapter$MyHolder.onClick(JiajuListAdapter.java:69)
+                                                                                                            at android.view.View.performClick(View.java:7322)
+                                                                                                            at android.view.View.performClickInternal(View.java:7296)
+                                                                                                            at android.view.View.access$3600(View.java:839)
+                                                                                                            at android.view.View$PerformClick.run(View.java:28319)
+                                                                                                            at android.os.Handler.handleCallback(Handler.java:900)
+                                                                                                            at android.os.Handler.dispatchMessage(Handler.java:103)
+                                                                                                            at android.os.Looper.loop(Looper.java:219)
+                                                                                                            at android.app.ActivityThread.main(ActivityThread.java:8673)
+                                                                                                            at java.lang.reflect.Method.invoke(Native Method)
+                                                                                                            at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:513)
+                                                                                                            at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1109)
+
+几乎都是主线程不能执行网络的命令这类的错误，需要把它弄到线程上执行。
+
 
 
 
