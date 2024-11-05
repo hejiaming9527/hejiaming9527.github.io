@@ -26,7 +26,7 @@ jobs:
           bundler-cache: true
 
       - name: Use Node.js 20 # 添加这一步骤
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 20
 
