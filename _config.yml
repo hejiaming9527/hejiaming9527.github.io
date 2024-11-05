@@ -21,7 +21,7 @@ timezone:
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: hejiahua007 # the main title
+title: hejiaming9527 # the main title
 
 tagline: 慢一点，再慢一点，让时光凝结，让点滴闪烁 # it will display as the sub-title
 
@@ -29,10 +29,10 @@ description: >- # used by seo meta and the atom feed
   这是通过Chirpy主题配置而成的
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
-url: ""
+url: "https://hejiaming9527.github.io"
 
 github:
-  username: hejiahua007 # change to your github username
+  username: hejiaming9527 # change to your github username
 
 social:
   # Change to your full name.
