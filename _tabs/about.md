@@ -1,29 +1,28 @@
 ---
-title: 简历
+title: Resume
 icon: fas fa-info
 order: 4
 
 ---
 
 <center>
-     <h1>何嘉华</h1>
+     <h1>何嘉明</h1>
  </center>
 
 ##### 个人信息
 
 - 性 别：男&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;年 龄：21
 
-- 手 机：19902358463&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;邮 箱：[19902358463@163.com](mailto:19902358463@163.com)
+- 手 机：19927078978&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;邮 箱：[15818927089@163.com](mailto:15818927089@163.com)
 
-- 专 业：物联网工程&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;岗 位：嵌入式软件工程师
-- 博客：[hejiahua007.github.io](https://hejiahua007.github.io/)
+- 专 业：电子信息工程&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;岗 位：嵌入式软件工程师
+- 博客：[hejiaming9527.github.io](https://hejiahua007.github.io/)
 
 ##### 教育经历
 
-- 广东海洋大学       2020.9~至今      物联网工程-本科
+- 广东石油化工学院       2021.9~至今      电子信息工程-本科
   
-  - 专业成绩：GPA 3.47/5
-  - 排名：15%
+- CET-4
 
 ##### 专业技能
 
