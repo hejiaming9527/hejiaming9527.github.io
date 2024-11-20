@@ -7,7 +7,7 @@ order: 4
 
 <center>
      <h1>何嘉明</h1>
- </center>
+</center>
 
 ##### 个人信息
 
