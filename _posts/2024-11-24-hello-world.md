@@ -1,27 +1,23 @@
 ---
-title: "Diving Back into Blogging: My Journey to GitHub Pages with Chirpy"
-author: zobayer
-date:   2020-07-31 23:01:01 +0600
-categories: [Technology]
-tags: [Jekyll, Blogging, Markdown]
+title: "你好，世界！"
+author: 
+date:   2024-11-23 14:36:00 +0800
+categories: [随笔]
+tags: [生活, 毕设]
 render_with_liquid: true
 ---
 
 #### Hello World!
 
-After a long pause filled with the bustling demands of life, I've finally carved out a bit of free time. Why not dive back into writing? Sure, I might be my own solitary reader, but honing my technical writing skills still feels like a valuable endeavor.
+你好！欢迎来到这里。这里是我记录毕业设计过程的地方，除了技术细节，我还希望能分享一些个人的思考和成长的点滴。如果你正在准备毕业设计或者对物联网、智能家居等话题感兴趣，那么你一定会在这里找到一些有趣的内容。
 
-Dusting off the old platforms of Blogger and WordPress didn't appeal to me this time. I was on the lookout for something streamlined, something that didn't bury the joy of writing under clunky dashboards. That's when my friend [Mishuk](https://github.com/syedarehaq) steered me towards GitHub Pages and Jekyll. As it turns out, the world of static site generators has its own charm.
+为什么开设这个博客呢？其实，除了自己在毕业设计的过程中不断积累经验，我也想通过这个平台记录下我的思考过程，也许别人也能从中得到一些启发或者帮助。更重要的是，这个博客也能成为我自己成长的一部分，看到自己从一个零基础的小白，逐渐变得更加自信和成熟的过程。
 
-Jumping into Jekyll turned out to be surprisingly straightforward. A few hours later, I brought this site to life. And the cherry on top? I ventured into this without any background in Ruby gems or delving into the complexities of sass. Yet, my comfort with markdown, thanks to endless project README files and documentation writing, paid off handsomely. The concept of pushing a post into a GitHub repo to publish it? Absolutely thrilling.
+这里的每一篇文章，都是我在这个学习旅程中的小小足迹。也许我会遇到困难，或者某些地方还不够完善，如果你有任何想法或者建议，请随时在评论区告诉我！我非常期待和大家一起讨论、交流和进步。
 
-#### Why did I choose Chirpy
+当然，作为一个毕业设计的“菜鸟”，我也许会时不时陷入焦虑的深渊，但我相信，记录和分享这一切，会让我从中收获更多的动力和自信。如果你和我有一样的困扰，或者对我的项目有兴趣，欢迎随时来看看，也许我们能一起笑谈成长中的“小尴尬”时刻。
 
-[Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy/tree/master) is a minimalist theme for github-pages. The bootstrapping was easy and straight forward. My main reasons for choosing this theme are
+感谢你能抽时间阅读这篇文章，也许这只是一个开始，但我希望你在这里能感受到一点温暖和帮助。接下来的博客会有更多关于物联网、智能家居的内容，期待与你一起走过这段有趣的旅程！
 
-1. **Dark Mode** out of the box!!!
-2. Easy analytics integration.
-3. Very active dev [community](https://github.com/cotes2020/jekyll-theme-chirpy/discussions).
-4. Did I mention **DARK MODE**???
+通过这种语气和表达方式，你不仅能让读者感受到你的友善与真诚，还能激发他们对后续内容的兴趣，并创造一个积极、互动的氛围。
 
-I'm excited for this new journey and the stories, challenges, and learnings I'll share along the way.
