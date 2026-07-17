@@ -14,7 +14,8 @@ title: 首页
   </p>
   <div class="hero-actions">
     <a class="button button-primary" href="#projects">查看项目 <i class="fas fa-arrow-down"></i></a>
-    <a class="button" href="{{ '/about/' | relative_url }}">在线简历</a>
+    <a class="button" href="{{ '/resume/' | relative_url }}"><i class="far fa-file-pdf"></i> 电子简历</a>
+    <a class="button" href="{{ '/about/' | relative_url }}">关于我</a>
     <a class="button" href="https://github.com/{{ site.github.username }}" target="_blank" rel="noopener">
       <i class="fab fa-github"></i> GitHub
     </a>
@@ -68,31 +69,34 @@ title: 首页
   </div>
   <p class="section-note">以下均为大学课程设计，由小组合作完成；内容按本人参与的技术工作整理。</p>
   <div class="project-list">
-    <article class="project-card">
+    <article class="project-card" id="project-stm32">
       <div class="project-number">01</div>
       <div class="project-content">
         <div class="project-meta"><span>课程设计</span><span>小组合作</span><time>2024.05 - 2024.06</time></div>
         <h3>基于 STM32 的智能音频播放器系统</h3>
         <p>集成 STM32F103C8T6、SU-03T 离线语音模块与 OLED 屏幕，参与 UART 通信、显示逻辑开发和系统联调。</p>
         <div class="project-tags"><span>STM32</span><span>UART</span><span>OLED</span><span>语音控制</span></div>
+        <a class="project-link" href="{{ '/about/#stm32-player' | relative_url }}">查看项目详情 <i class="fas fa-arrow-right"></i></a>
       </div>
     </article>
-    <article class="project-card">
+    <article class="project-card" id="project-amplifier">
       <div class="project-number">02</div>
       <div class="project-content">
         <div class="project-meta"><span>课程设计</span><span>小组合作</span><time>2023.05 - 2023.06</time></div>
         <h3>高保真音频放大器硬件设计</h3>
         <p>基于 NS4225 功放芯片，参与电路仿真、选型、成本控制、PCB 布局、焊接及整机调试。</p>
         <div class="project-tags"><span>NS4225</span><span>Proteus</span><span>PCB</span><span>USB Audio</span></div>
+        <a class="project-link" href="{{ '/about/#audio-amplifier' | relative_url }}">查看项目详情 <i class="fas fa-arrow-right"></i></a>
       </div>
     </article>
-    <article class="project-card">
+    <article class="project-card" id="project-cnn">
       <div class="project-number">03</div>
       <div class="project-content">
         <div class="project-meta"><span>课程设计</span><span>小组合作</span><time>2024.03 - 2024.04</time></div>
         <h3>基于 CNN 的手写数字识别系统</h3>
         <p>使用 Python 与 TensorFlow 搭建 CNN，参与数据处理、训练调优和 AlexNet 迁移学习实验。</p>
         <div class="project-tags"><span>Python</span><span>TensorFlow</span><span>CNN</span><span>AlexNet</span></div>
+        <a class="project-link" href="{{ '/about/#cnn-digits' | relative_url }}">查看项目详情 <i class="fas fa-arrow-right"></i></a>
       </div>
     </article>
   </div>

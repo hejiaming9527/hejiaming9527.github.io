@@ -29,6 +29,8 @@ permalink: /about/
 
 > 以下项目均为大学课程设计，由小组合作完成，并非个人独立开发。内容按本人实际参与的技术工作整理。
 
+<span id="stm32-player" class="anchor-target"></span>
+
 ### 基于 STM32 的智能音频播放器系统
 
 `课程设计 · 小组合作` · `2024.05 - 2024.06`
@@ -36,12 +38,16 @@ permalink: /about/
 - 基于 STM32F103C8T6 核心板，集成 SU-03T 离线语音识别模块与 OLED 屏幕，共同完成软硬件一体的语音控制音频系统。
 - 参与 UART 通信与 OLED 显示逻辑的开发和联调，实现歌曲名称、播放状态及音量等信息显示，以及切歌、暂停、播放和音量调节等离线语音控制功能。
 
+<span id="audio-amplifier" class="anchor-target"></span>
+
 ### 高保真音频放大器硬件设计
 
 `课程设计 · 小组合作` · `2023.05 - 2023.06`
 
 - 基于 NS4225 音频功放芯片，参与 Proteus 电路仿真、元器件选型、BOM 成本控制、PCB 布局、焊接及整机组装调试。
 - 参与音频处理控制软件和 USB 音频播放功能的调试，完成稳定的音频放大输出。
+
+<span id="cnn-digits" class="anchor-target"></span>
 
 ### 基于 CNN 的手写数字识别系统
 

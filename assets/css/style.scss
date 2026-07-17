@@ -29,6 +29,13 @@ html { scroll-behavior: smooth; }
 
 .portfolio-page a { text-decoration: none; }
 
+.portfolio-page #sidebar {
+  border-right: 1px solid var(--portfolio-border);
+  background: #14171d;
+}
+.portfolio-page #topbar-wrapper { background: rgba(16, 18, 22, .86); backdrop-filter: blur(18px); }
+.portfolio-main { width: 100%; padding: 0 1.5rem; }
+
 .portfolio-nav {
   position: sticky;
   z-index: 20;
@@ -108,6 +115,8 @@ html { scroll-behavior: smooth; }
 .project-content > p { margin: 0; color: var(--portfolio-muted); font-size: .9rem; line-height: 1.75; }
 .project-tags { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1rem; }
 .project-tags span { color: #8390a3; background: #1c212a; }
+.project-link { display: inline-flex; align-items: center; gap: .45rem; margin-top: 1.15rem; color: #77aaff; font-size: .8rem; font-weight: 650; }
+.project-link:hover { color: #a8c9ff; }
 
 .experience-card { display: grid; grid-template-columns: 9rem 1fr; padding: 2rem; border: 1px solid var(--portfolio-border); border-radius: 1rem; background: var(--portfolio-surface); }
 .experience-date { color: #738095; font: .82rem/1.55 Consolas, monospace; }
@@ -127,10 +136,63 @@ html { scroll-behavior: smooth; }
 [data-mode="dark"] #sidebar { background: #14171d; }
 [data-mode="dark"] .card, [data-mode="dark"] .resume-header { border: 1px solid #293141; background: #171b22; }
 
+/* 分类、标签、归档、关于与电子简历统一风格 */
+[data-mode="dark"] #main-wrapper { background: #101216; }
+[data-mode="dark"] #main > .row > .col-12 > h1,
+[data-mode="dark"] #main h1.dynamic-title {
+  color: #f2f5fa;
+  font-weight: 700;
+  letter-spacing: -.03em;
+}
+[data-mode="dark"] #categories .card,
+[data-mode="dark"] #tags .tag,
+[data-mode="dark"] #archives .year,
+[data-mode="dark"] .list-group-item {
+  border-color: #293141;
+  background: #171b22;
+}
+[data-mode="dark"] #categories .card:hover,
+[data-mode="dark"] #tags .tag:hover,
+[data-mode="dark"] .list-group-item:hover {
+  border-color: #3a4e6e;
+  background: #1a202a;
+}
+[data-mode="dark"] #archives a,
+[data-mode="dark"] #categories a,
+[data-mode="dark"] #tags a { color: #dce4ef; }
+[data-mode="dark"] .content h2 {
+  margin-top: 2.4rem;
+  padding-bottom: .65rem;
+  border-bottom: 1px solid #293141;
+  color: #f2f5fa;
+}
+[data-mode="dark"] .content h3 { color: #dce4ef; }
+.anchor-target { position: relative; top: -5.5rem; visibility: hidden; }
+
+.resume-viewer-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 1.3rem;
+  padding: 1.5rem 1.7rem;
+  border: 1px solid #293141;
+  border-radius: 1rem;
+  background: linear-gradient(120deg, #192337, #171b22);
+}
+.resume-viewer-heading p { margin: 0 0 .3rem; color: #60a5fa; font-size: .68rem; font-weight: 750; letter-spacing: .16em; }
+.resume-viewer-heading h2 { margin: 0 0 .35rem !important; padding: 0 !important; border: 0 !important; font-size: 1.35rem; }
+.resume-viewer-heading span { color: #99a3b3; font-size: .84rem; }
+.resume-viewer-heading > a {
+  display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; gap: .5rem;
+  min-height: 2.8rem; padding: 0 1rem; border: 1px solid #3b82f6; border-radius: .6rem;
+  color: white; background: #3b82f6; font-size: .84rem; font-weight: 650;
+}
+.resume-pdf-shell { overflow: hidden; width: 100%; height: min(78vh, 980px); border: 1px solid #293141; border-radius: 1rem; background: #22262d; }
+.resume-pdf-shell object { width: 100%; height: 100%; border: 0; }
+
 @media (max-width: 760px) {
-  .portfolio-nav { height: auto; min-height: 4rem; padding: .75rem 1.25rem; }
-  .portfolio-nav nav { gap: 1rem; }
-  .portfolio-nav nav a:nth-child(-n+2) { display: none; }
+  .portfolio-main { padding: 0 .5rem; }
   .portfolio-shell { width: min(100% - 2rem, 1100px); }
   .portfolio-hero { margin-top: 1rem; padding: 2.2rem 1.5rem; border-radius: 1rem; }
   .portfolio-hero h1 { font-size: clamp(2.25rem, 11vw, 3.5rem); }
@@ -144,4 +206,6 @@ html { scroll-behavior: smooth; }
   .experience-card { grid-template-columns: 1fr; gap: 1.25rem; }
   .portfolio-cta { align-items: flex-start; flex-direction: column; padding: 1.7rem; }
   .portfolio-footer { flex-direction: column; gap: .5rem; width: calc(100% - 2rem); }
+  .resume-viewer-heading { align-items: flex-start; flex-direction: column; padding: 1.25rem; }
+  .resume-pdf-shell { height: 72vh; border-radius: .7rem; }
 }
