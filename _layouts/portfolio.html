@@ -6,6 +6,7 @@ layout: compress
 {% include assets-origin.html %}
 <html lang="{{ site.lang }}" data-mode="dark">
   {% include head.html %}
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
   <body class="portfolio-page">
     <header class="portfolio-nav">
       <a class="portfolio-brand" href="{{ '/' | relative_url }}" aria-label="返回首页">
