@@ -1,4 +1,124 @@
 ---
-layout: home
-# Index page
+layout: portfolio
+title: 首页
 ---
+
+<section class="portfolio-hero">
+  <div class="hero-glow hero-glow-one"></div>
+  <div class="hero-glow hero-glow-two"></div>
+  <p class="hero-kicker"><span></span> ELECTRONIC INFORMATION ENGINEER</p>
+  <h1>把硬件、软件与制造现场<br><em>连接成可靠的解决方案</em></h1>
+  <p class="hero-summary">
+    我是何嘉明，电子信息工程专业背景，具备嵌入式开发、电路设计基础与海信电子生产管理经验，
+    关注软硬件协同、精益生产和真正能够落地的问题解决。
+  </p>
+  <div class="hero-actions">
+    <a class="button button-primary" href="#projects">查看项目 <i class="fas fa-arrow-down"></i></a>
+    <a class="button" href="{{ '/about/' | relative_url }}">在线简历</a>
+    <a class="button" href="https://github.com/{{ site.github.username }}" target="_blank" rel="noopener">
+      <i class="fab fa-github"></i> GitHub
+    </a>
+  </div>
+  <div class="hero-stats" aria-label="个人概况">
+    <div><strong>2021 - 2025</strong><span>电子信息工程本科</span></div>
+    <div><strong>3 项</strong><span>课程设计项目</span></div>
+    <div><strong>1 年</strong><span>制造现场经验</span></div>
+  </div>
+</section>
+
+<section class="portfolio-section" id="profile">
+  <div class="section-heading">
+    <p><span>01</span> PROFILE</p>
+    <h2>现在的我</h2>
+    <div></div>
+  </div>
+  <div class="capability-grid">
+    <article class="capability-card">
+      <i class="fas fa-microchip"></i>
+      <h3>嵌入式开发</h3>
+      <p>熟悉 STM32 架构、单片机开发及 UART/I2C 通信，能够参与软硬件联调与功能验证。</p>
+      <span>STM32 · C · UART · I2C</span>
+    </article>
+    <article class="capability-card">
+      <i class="fas fa-wave-square"></i>
+      <h3>电路与硬件</h3>
+      <p>具备数字/模拟电路基础，掌握 Proteus 仿真、元器件选型、PCB 焊接和 BOM 控制。</p>
+      <span>Proteus · PCB · BOM</span>
+    </article>
+    <article class="capability-card">
+      <i class="fas fa-industry"></i>
+      <h3>制造与精益</h3>
+      <p>熟悉现场 5S、SOP、UPH 与异常质量控制，具有产线瓶颈识别和跨部门协同经验。</p>
+      <span>Lean · SOP · IE · FPY</span>
+    </article>
+    <article class="capability-card">
+      <i class="fas fa-code"></i>
+      <h3>软件与数据</h3>
+      <p>掌握 Python、C 语言及数据库基础，了解 Linux、Shell 与基础 Web 前端技术。</p>
+      <span>Python · C · MySQL · Linux</span>
+    </article>
+  </div>
+</section>
+
+<section class="portfolio-section" id="projects">
+  <div class="section-heading">
+    <p><span>02</span> PROJECTS</p>
+    <h2>项目经历</h2>
+    <div></div>
+  </div>
+  <p class="section-note">以下均为大学课程设计，由小组合作完成；内容按本人参与的技术工作整理。</p>
+  <div class="project-list">
+    <article class="project-card">
+      <div class="project-number">01</div>
+      <div class="project-content">
+        <div class="project-meta"><span>课程设计</span><span>小组合作</span><time>2024.05 - 2024.06</time></div>
+        <h3>基于 STM32 的智能音频播放器系统</h3>
+        <p>集成 STM32F103C8T6、SU-03T 离线语音模块与 OLED 屏幕，参与 UART 通信、显示逻辑开发和系统联调。</p>
+        <div class="project-tags"><span>STM32</span><span>UART</span><span>OLED</span><span>语音控制</span></div>
+      </div>
+    </article>
+    <article class="project-card">
+      <div class="project-number">02</div>
+      <div class="project-content">
+        <div class="project-meta"><span>课程设计</span><span>小组合作</span><time>2023.05 - 2023.06</time></div>
+        <h3>高保真音频放大器硬件设计</h3>
+        <p>基于 NS4225 功放芯片，参与电路仿真、选型、成本控制、PCB 布局、焊接及整机调试。</p>
+        <div class="project-tags"><span>NS4225</span><span>Proteus</span><span>PCB</span><span>USB Audio</span></div>
+      </div>
+    </article>
+    <article class="project-card">
+      <div class="project-number">03</div>
+      <div class="project-content">
+        <div class="project-meta"><span>课程设计</span><span>小组合作</span><time>2024.03 - 2024.04</time></div>
+        <h3>基于 CNN 的手写数字识别系统</h3>
+        <p>使用 Python 与 TensorFlow 搭建 CNN，参与数据处理、训练调优和 AlexNet 迁移学习实验。</p>
+        <div class="project-tags"><span>Python</span><span>TensorFlow</span><span>CNN</span><span>AlexNet</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="portfolio-section experience-section">
+  <div class="section-heading">
+    <p><span>03</span> EXPERIENCE</p>
+    <h2>工作与成长</h2>
+    <div></div>
+  </div>
+  <div class="experience-card">
+    <div class="experience-date">2025.06<br>—<br>2026.05</div>
+    <div>
+      <p class="experience-company">广东海信电子有限公司</p>
+      <h3>生产管理储备工程师 / 制造工程师</h3>
+      <p>参与产线精益管理、工艺异常响应和跨部门排程协同；通过识别生产瓶颈，推动相关产线流转效率提升约 8%。</p>
+      <a href="{{ '/about/' | relative_url }}">查看完整经历 <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio-cta">
+  <div>
+    <p>LET'S CONNECT</p>
+    <h2>期待与认真做事的人一起成长</h2>
+  </div>
+  <a class="button button-primary" href="mailto:{{ site.social.email }}">联系我 <i class="far fa-envelope"></i></a>
+</section>

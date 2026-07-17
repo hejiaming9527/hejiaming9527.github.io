@@ -1,0 +1,37 @@
+---
+layout: compress
+---
+
+<!doctype html>
+{% include assets-origin.html %}
+<html lang="{{ site.lang }}" data-mode="dark">
+  {% include head.html %}
+  <body class="portfolio-page">
+    <header class="portfolio-nav">
+      <a class="portfolio-brand" href="{{ '/' | relative_url }}" aria-label="返回首页">
+        <span>HJ</span>
+        <strong>何嘉明</strong>
+      </a>
+      <nav aria-label="主要导航">
+        <a href="#profile">现在的我</a>
+        <a href="#projects">项目经历</a>
+        <a href="{{ '/about/' | relative_url }}">在线简历</a>
+        <a href="https://github.com/{{ site.github.username }}" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </header>
+
+    <main class="portfolio-shell">
+      {{ content }}
+    </main>
+
+    <footer class="portfolio-footer">
+      <span>© {{ 'now' | date: '%Y' }} 何嘉明</span>
+      <span>电子信息工程 · 持续学习，认真做事</span>
+    </footer>
+
+    <a id="back-to-top" href="#" aria-label="返回顶部" class="portfolio-back-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+    {% include js-selector.html %}
+  </body>
+</html>
