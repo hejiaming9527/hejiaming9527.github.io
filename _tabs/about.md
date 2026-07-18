@@ -58,11 +58,38 @@ permalink: /about/
 
 ## 专业技能
 
-| 方向 | 技能 |
-| --- | --- |
-| 硬件与嵌入式 | 数字/模拟电子技术基础、单片机开发、STM32、UART/I2C、Proteus 仿真、PCB 焊接、元器件选型与 BOM 控制 |
-| 制造与工业工程 | 精益生产、现场 5S、SOP 编写、产线瓶颈分析（IE 优化）、异常质量控制 |
-| 软件与数据库 | Python、C、Linux 常用命令、Shell 基础、MySQL、SQLite3、HTML5/CSS/Vue 基础 |
+<div class="skill-summary-grid">
+  <section class="skill-summary-card">
+    <p class="skill-summary-kicker">HARDWARE & EMBEDDED</p>
+    <h3>硬件与嵌入式</h3>
+    <p>具备数字/模拟电子技术基础，参与单片机、显示与通信模块的联调。</p>
+    <ul>
+      <li>STM32 与单片机开发</li>
+      <li>UART / I2C 通信</li>
+      <li>Proteus、PCB 焊接与 BOM 控制</li>
+    </ul>
+  </section>
+  <section class="skill-summary-card">
+    <p class="skill-summary-kicker">MANUFACTURING</p>
+    <h3>制造与工业工程</h3>
+    <p>熟悉生产现场的持续改善和异常响应，重视标准化与协同执行。</p>
+    <ul>
+      <li>精益生产与现场 5S</li>
+      <li>SOP 编写与维护</li>
+      <li>IE 优化与质量异常控制</li>
+    </ul>
+  </section>
+  <section class="skill-summary-card">
+    <p class="skill-summary-kicker">SOFTWARE & DATA</p>
+    <h3>软件与数据</h3>
+    <p>掌握基础软件开发与数据操作能力，可配合软硬件项目完成验证。</p>
+    <ul>
+      <li>Python、C、Linux、Shell 基础</li>
+      <li>MySQL 与 SQLite3</li>
+      <li>HTML5 / CSS / Vue 基础</li>
+    </ul>
+  </section>
+</div>
 
 ## 教育经历
 
@@ -94,11 +121,8 @@ permalink: /about/
 .resume-header h1 { margin: 0 0 .35rem; }
 .resume-header p { margin: .2rem 0; }
 .resume-role { font-size: 1.05rem; font-weight: 600; }
-.content table { width: 100%; }
-.content table th:first-child { min-width: 8rem; }
 .content blockquote { border-left-color: var(--link-color); }
 @media (max-width: 576px) {
   .resume-header { padding: 1.2rem; }
-  .content table { display: block; overflow-x: auto; }
 }
 </style>

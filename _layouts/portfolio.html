@@ -29,6 +29,20 @@ layout: compress
     </a>
     <div id="mask"></div>
     {% include search-loader.html %}
+    <script>
+      (() => {
+        const threshold = 360;
+        const toggleBackToTop = () => {
+          document.body.classList.toggle('back-to-top-visible', window.scrollY > threshold);
+        };
+        window.addEventListener('scroll', toggleBackToTop, { passive: true });
+        document.querySelector('#back-to-top').addEventListener('click', (event) => {
+          event.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        toggleBackToTop();
+      })();
+    </script>
     {% include js-selector.html %}
   </body>
 </html>
