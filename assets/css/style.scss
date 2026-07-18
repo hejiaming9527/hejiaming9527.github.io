@@ -587,6 +587,7 @@ code { overflow-wrap: anywhere; word-break: break-word; white-space: pre-wrap; }
 
 #back-to-top.portfolio-back-top {
   display: grid !important;
+  position: fixed;
   place-items: center;
   box-sizing: border-box;
   width: 2.8rem !important;
@@ -618,22 +619,20 @@ code { overflow-wrap: anywhere; word-break: break-word; white-space: pre-wrap; }
 }
 
 #back-to-top.portfolio-back-top i {
-  display: block;
-  width: 1em;
-  height: 1em;
-  margin: 0 !important;
-  line-height: 1;
-  font-size: 0;
-  text-align: center;
-  transform: none;
+  display: none !important;
 }
 
-#back-to-top.portfolio-back-top i::before {
+#back-to-top.portfolio-back-top::after {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
   color: #e0cca0;
   font-family: Georgia, "Noto Serif SC", serif;
   font-size: 1.15rem;
   font-weight: 700;
   line-height: 1;
+  text-align: center;
   content: "↑";
 }
 
@@ -923,18 +922,24 @@ body:has(.resume-viewer-heading) > footer {
 }
 
 .skill-summary-card li {
-  position: relative;
-  padding-left: .95rem;
+  display: flex;
+  align-items: flex-start;
+  gap: .55rem;
+  padding-left: 0;
   color: #d4cbb3;
   font-size: .8rem;
   line-height: 1.5;
 }
 
 .skill-summary-card li::before {
-  position: absolute;
-  left: 0;
-  color: #91b582;
-  content: "✦";
+  flex: 0 0 .38rem;
+  width: .38rem;
+  height: .38rem;
+  margin-top: .42rem;
+  border: 1px solid #91b582;
+  border-radius: 50%;
+  background: rgba(145, 181, 130, .18);
+  content: "";
 }
 
 @media (max-width: 760px) {
