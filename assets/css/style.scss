@@ -662,6 +662,100 @@ code { overflow-wrap: anywhere; word-break: break-word; white-space: pre-wrap; }
 
 #tail-wrapper a { color: #c6a45f !important; }
 
+/* Chirpy standard pages render the copyright area as a plain footer element. */
+body:not(.portfolio-page) > footer {
+  border-top: 1px solid rgba(167, 132, 67, .42);
+  color: #ab9e81;
+  background:
+    linear-gradient(90deg, rgba(147, 112, 51, .08), transparent 35%, rgba(77, 103, 87, .07)),
+    #1b1b16;
+}
+
+body:not(.portfolio-page) > footer .text-muted,
+body:not(.portfolio-page) > footer p { color: inherit !important; }
+body:not(.portfolio-page) > footer a { color: #c6a45f !important; }
+
+/* Standard-page footer follows the active destination's accent color. */
+body:has(#categories) #tail-wrapper,
+body:has(#page-category) #tail-wrapper {
+  border-color: rgba(183, 130, 210, .48) !important;
+  background: linear-gradient(90deg, rgba(183, 130, 210, .13), transparent 42%), #1c1a20 !important;
+}
+body:has(#categories) #tail-wrapper,
+body:has(#page-category) #tail-wrapper { color: #cbb6d8 !important; }
+body:has(#categories) #tail-wrapper a,
+body:has(#page-category) #tail-wrapper a { color: #d7a9ed !important; }
+body:has(#categories) > footer,
+body:has(#page-category) > footer {
+  border-color: rgba(183, 130, 210, .48) !important;
+  color: #cbb6d8 !important;
+  background: linear-gradient(90deg, rgba(183, 130, 210, .13), transparent 42%), #1c1a20 !important;
+}
+body:has(#categories) > footer a,
+body:has(#page-category) > footer a { color: #d7a9ed !important; }
+body:has(.categories) > footer {
+  border-color: rgba(183, 130, 210, .48) !important;
+  color: #cbb6d8 !important;
+  background: linear-gradient(90deg, rgba(183, 130, 210, .13), transparent 42%), #1c1a20 !important;
+}
+body:has(.categories) > footer a { color: #d7a9ed !important; }
+
+body:has(#tags) #tail-wrapper,
+body:has(#page-tag) #tail-wrapper {
+  border-color: rgba(220, 129, 118, .48) !important;
+  color: #ddbbb4 !important;
+  background: linear-gradient(90deg, rgba(220, 129, 118, .12), transparent 42%), #211a19 !important;
+}
+body:has(#tags) #tail-wrapper a,
+body:has(#page-tag) #tail-wrapper a { color: #eb9b90 !important; }
+body:has(#tags) > footer,
+body:has(#page-tag) > footer {
+  border-color: rgba(220, 129, 118, .48) !important;
+  color: #ddbbb4 !important;
+  background: linear-gradient(90deg, rgba(220, 129, 118, .12), transparent 42%), #211a19 !important;
+}
+body:has(#tags) > footer a,
+body:has(#page-tag) > footer a { color: #eb9b90 !important; }
+
+body:has(#archives) #tail-wrapper {
+  border-color: rgba(103, 168, 184, .5) !important;
+  color: #b7d2d8 !important;
+  background: linear-gradient(90deg, rgba(103, 168, 184, .12), transparent 42%), #182021 !important;
+}
+body:has(#archives) #tail-wrapper a { color: #82c5d3 !important; }
+body:has(#archives) > footer {
+  border-color: rgba(103, 168, 184, .5) !important;
+  color: #b7d2d8 !important;
+  background: linear-gradient(90deg, rgba(103, 168, 184, .12), transparent 42%), #182021 !important;
+}
+body:has(#archives) > footer a { color: #82c5d3 !important; }
+
+body:has(.resume-header) #tail-wrapper {
+  border-color: rgba(135, 175, 121, .5) !important;
+  color: #c2d7b9 !important;
+  background: linear-gradient(90deg, rgba(135, 175, 121, .12), transparent 42%), #1a2119 !important;
+}
+body:has(.resume-header) #tail-wrapper a { color: #a9d397 !important; }
+body:has(.resume-header) > footer {
+  border-color: rgba(135, 175, 121, .5) !important;
+  color: #c2d7b9 !important;
+  background: linear-gradient(90deg, rgba(135, 175, 121, .12), transparent 42%), #1a2119 !important;
+}
+body:has(.resume-header) > footer a { color: #a9d397 !important; }
+
+body:has(.resume-viewer-heading) #tail-wrapper {
+  border-color: rgba(214, 170, 98, .5) !important;
+  color: #dbc899 !important;
+  background: linear-gradient(90deg, rgba(214, 170, 98, .12), transparent 42%), #211d17 !important;
+}
+body:has(.resume-viewer-heading) #tail-wrapper a { color: #ecc879 !important; }
+body:has(.resume-viewer-heading) > footer {
+  border-color: rgba(214, 170, 98, .5) !important;
+  color: #dbc899 !important;
+  background: linear-gradient(90deg, rgba(214, 170, 98, .12), transparent 42%), #211d17 !important;
+}
+body:has(.resume-viewer-heading) > footer a { color: #ecc879 !important; }
+
 .portfolio-cta {
   border-color: #705a36;
   border-radius: .45rem;
