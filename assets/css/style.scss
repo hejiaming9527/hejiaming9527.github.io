@@ -756,6 +756,41 @@ body:has(.resume-viewer-heading) > footer {
 }
 body:has(.resume-viewer-heading) > footer a { color: #ecc879 !important; }
 
+/* Make the current-page footer accent clearly visible instead of a barely perceptible tint. */
+body:not(.portfolio-page) > footer {
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 3px 0 #a78343;
+}
+
+body:has(#categories) > footer,
+body:has(.categories) > footer,
+body:has(#page-category) > footer {
+  background: linear-gradient(90deg, rgba(183, 130, 210, .27), rgba(183, 130, 210, .08) 52%, #211b25 100%) !important;
+  box-shadow: inset 0 3px 0 #b782d2, 0 -7px 20px rgba(183, 130, 210, .08);
+}
+
+body:has(#tags) > footer,
+body:has(#page-tag) > footer {
+  background: linear-gradient(90deg, rgba(220, 129, 118, .27), rgba(220, 129, 118, .08) 52%, #241a19 100%) !important;
+  box-shadow: inset 0 3px 0 #dc8176, 0 -7px 20px rgba(220, 129, 118, .08);
+}
+
+body:has(#archives) > footer {
+  background: linear-gradient(90deg, rgba(103, 168, 184, .27), rgba(103, 168, 184, .08) 52%, #182123 100%) !important;
+  box-shadow: inset 0 3px 0 #67a8b8, 0 -7px 20px rgba(103, 168, 184, .08);
+}
+
+body:has(.resume-header) > footer {
+  background: linear-gradient(90deg, rgba(135, 175, 121, .27), rgba(135, 175, 121, .08) 52%, #1b2319 100%) !important;
+  box-shadow: inset 0 3px 0 #87af79, 0 -7px 20px rgba(135, 175, 121, .08);
+}
+
+body:has(.resume-viewer-heading) > footer {
+  background: linear-gradient(90deg, rgba(214, 170, 98, .27), rgba(214, 170, 98, .08) 52%, #252017 100%) !important;
+  box-shadow: inset 0 3px 0 #d6aa62, 0 -7px 20px rgba(214, 170, 98, .08);
+}
+
 .portfolio-cta {
   border-color: #705a36;
   border-radius: .45rem;
