@@ -971,6 +971,171 @@ body:has(.resume-viewer-heading) > footer {
   content: none !important;
 }
 
+/* Theme control beside the avatar: a compact control with a visible ripple,
+   while Chirpy continues to own the actual mode state and persistence. */
+#sidebar #avatar { position: relative; overflow: visible; }
+#sidebar .profile-mode-toggle {
+  position: absolute;
+  right: -2.35rem;
+  bottom: -.25rem;
+  display: grid;
+  place-items: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  overflow: hidden;
+  border: 1px solid rgba(202, 164, 94, .72);
+  border-radius: 50%;
+  color: #e7cf97;
+  background: rgba(31, 31, 24, .94);
+  box-shadow: 0 .3rem .9rem rgba(0, 0, 0, .2);
+  cursor: pointer;
+  isolation: isolate;
+  transition: transform .2s ease, border-color .2s ease, color .2s ease;
+}
+
+#sidebar .profile-mode-toggle:hover { transform: translateY(-2px); border-color: #f0c96d; }
+#sidebar .profile-mode-toggle i { position: relative; z-index: 1; font-size: .82rem; }
+#sidebar .theme-ripple {
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: scale(0);
+  opacity: 0;
+  background: radial-gradient(circle, rgba(239, 201, 109, .82) 0%, rgba(105, 151, 185, .46) 46%, transparent 72%);
+}
+#sidebar .theme-ripple.is-active { animation: theme-ripple .68s ease-out; }
+@keyframes theme-ripple {
+  0% { transform: scale(0); opacity: .95; }
+  100% { transform: scale(1); opacity: 0; }
+}
+
+/* A readable light interpretation of the same parchment-and-bronze system. */
+html[data-mode="light"] body,
+html[data-mode="light"] .portfolio-page,
+html[data-mode="light"] #main-wrapper,
+html[data-mode="light"] .portfolio-main,
+html[data-mode="light"] .portfolio-shell {
+  color: #2c2922 !important;
+  background:
+    repeating-linear-gradient(0deg, rgba(107, 83, 41, .025) 0 1px, transparent 1px 5px),
+    linear-gradient(112deg, #f6f0df, #ece3cd 55%, #f7f2e6) !important;
+}
+html[data-mode="light"] #sidebar {
+  color: #3c3427 !important;
+  border-right-color: rgba(137, 99, 38, .5) !important;
+  background:
+    repeating-linear-gradient(0deg, rgba(111, 84, 43, .045) 0 1px, transparent 1px 5px),
+    linear-gradient(160deg, #eee4d1, #e0d1b6) !important;
+}
+html[data-mode="light"] #sidebar::before,
+html[data-mode="light"] #sidebar::after { color: #9a763a; }
+html[data-mode="light"] #sidebar .site-title,
+html[data-mode="light"] #sidebar .site-title a { color: #372b1a !important; }
+html[data-mode="light"] #sidebar .site-subtitle { color: #746148 !important; }
+html[data-mode="light"] #sidebar .profile-mode-toggle {
+  color: #60451c;
+  border-color: rgba(128, 94, 36, .7);
+  background: rgba(255, 250, 237, .94);
+  box-shadow: 0 .3rem .8rem rgba(83, 59, 21, .16);
+}
+html[data-mode="light"] #sidebar .nav-link { border-bottom-color: rgba(119, 89, 40, .16); }
+html[data-mode="light"] #sidebar .nav-item .nav-link,
+html[data-mode="light"] #sidebar .nav-item .nav-link i { color: color-mix(in srgb, var(--nav-accent) 72%, #44351e) !important; }
+
+html[data-mode="light"] .portfolio-hero,
+html[data-mode="light"] .capability-card,
+html[data-mode="light"] .project-card,
+html[data-mode="light"] .experience-card,
+html[data-mode="light"] .portfolio-cta,
+html[data-mode="light"] .resume-viewer-heading,
+html[data-mode="light"] .resume-pdf-shell,
+html[data-mode="light"] .skill-summary-card,
+html[data-mode="light"] .resume-header {
+  border-color: rgba(127, 93, 35, .45) !important;
+  background: linear-gradient(145deg, rgba(255, 252, 243, .95), rgba(235, 222, 194, .9)) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .62), 0 .6rem 1.8rem rgba(98, 72, 27, .08) !important;
+}
+html[data-mode="light"] .resume-word-summary {
+  color: #514633 !important;
+  border-color: rgba(127, 93, 35, .38) !important;
+  background: rgba(255, 252, 243, .82) !important;
+}
+/* These standard-page accents use an ID selector in the dark theme, so repeat
+   that selector depth here to prevent a dark card with dark text in light mode. */
+html[data-mode="light"] #main:has(.resume-header) .resume-header,
+html[data-mode="light"] #main:has(.resume-viewer-heading) .resume-viewer-heading {
+  border-color: rgba(127, 93, 35, .45) !important;
+  background: linear-gradient(145deg, rgba(255, 252, 243, .98), rgba(235, 222, 194, .92)) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .68), 0 .6rem 1.8rem rgba(98, 72, 27, .08) !important;
+}
+html[data-mode="light"] .resume-header h1,
+html[data-mode="light"] .resume-header p,
+html[data-mode="light"] .resume-viewer-heading h2,
+html[data-mode="light"] .resume-viewer-heading p,
+html[data-mode="light"] .resume-viewer-heading span { color: #493821 !important; }
+html[data-mode="light"] .resume-viewer-heading > a {
+  color: #4c381b !important;
+  border-color: #a37a31 !important;
+  background: #fff8e9 !important;
+}
+html[data-mode="light"] .portfolio-hero h1,
+html[data-mode="light"] .portfolio-hero h1 em,
+html[data-mode="light"] .portfolio-cta h2,
+html[data-mode="light"] .project-content h3,
+html[data-mode="light"] .capability-card h3,
+html[data-mode="light"] .experience-card h3,
+html[data-mode="light"] .skill-summary-card h3,
+html[data-mode="light"] #main h1,
+html[data-mode="light"] #main h2,
+html[data-mode="light"] #main h3 { color: #37291b !important; }
+html[data-mode="light"] .hero-summary,
+html[data-mode="light"] .capability-card p,
+html[data-mode="light"] .project-content > p,
+html[data-mode="light"] .experience-card div:last-child > p:last-of-type,
+html[data-mode="light"] .skill-summary-card > p:not(.skill-summary-kicker),
+html[data-mode="light"] .skill-summary-card li,
+html[data-mode="light"] #main .post-content,
+html[data-mode="light"] #main .post-content p,
+html[data-mode="light"] #main .post-content li { color: #514633 !important; }
+html[data-mode="light"] .project-number,
+html[data-mode="light"] .project-tags span { background: rgba(154, 118, 58, .09) !important; }
+html[data-mode="light"] .project-meta time,
+html[data-mode="light"] .capability-card span,
+html[data-mode="light"] .portfolio-footer { color: #76654a !important; }
+html[data-mode="light"] .portfolio-footer { border-top-color: rgba(133, 96, 38, .42) !important; }
+html[data-mode="light"] .portfolio-back-top,
+html[data-mode="light"] #back-to-top { background: #fffaf0 !important; border-color: #9e7b3c !important; }
+html[data-mode="light"] body:not(.portfolio-page) > footer {
+  background: #e9dcc2 !important;
+  color: #665537 !important;
+}
+
+@media (max-width: 760px) {
+  #sidebar .profile-mode-toggle { right: -1.8rem; bottom: -.15rem; }
+}
+
+/* Word-first resume page: keep the editable download prominent while offering
+   an accessible, browser-readable summary on devices that cannot preview DOCX. */
+.resume-word-summary {
+  margin-top: 1rem;
+  padding: 1.45rem 1.6rem;
+  border: 1px solid rgba(167, 132, 67, .42);
+  border-radius: .8rem;
+  background: rgba(29, 30, 24, .72);
+}
+.resume-word-summary h3 {
+  margin: 0 0 .85rem !important;
+  padding: 0 !important;
+  border: 0 !important;
+  color: #e4d5b4;
+  font-size: 1.05rem;
+}
+.resume-word-summary p { margin: 0 0 .72rem; color: #c5b99f; line-height: 1.8; }
+.resume-word-summary strong { color: #dcc080; }
+.resume-inline-link { display: inline-flex; align-items: center; gap: .45rem; color: #d1a958; font-weight: 700; }
+.resume-inline-link:hover { color: #eed092; }
+
 @media (max-width: 760px) {
   .skill-summary-grid { grid-template-columns: 1fr; }
   .skill-summary-card > p:not(.skill-summary-kicker) { min-height: auto; }

@@ -1,0 +1,128 @@
+<!--
+  Local sidebar override: keeps Chirpy navigation while placing the theme switch
+  beside the profile photo instead of in the lower utility area.
+-->
+<div id="sidebar" class="d-flex flex-column align-items-end">
+  <div class="profile-wrapper text-center">
+    <div id="avatar">
+      <a href="{{ '/' | relative_url }}" class="mx-auto">
+        {% if site.avatar != empty and site.avatar %}
+          {% capture avatar_url %}
+            {% if site.avatar contains '://' %}
+              {{ site.avatar }}
+            {% elsif site.img_cdn != empty and site.img_cdn %}
+              {{ site.avatar | prepend: site.img_cdn }}
+            {% else %}
+              {{ site.avatar | relative_url }}
+            {% endif %}
+          {% endcapture %}
+          <img src="{{ avatar_url | strip }}" alt="何嘉明的头像" onerror="this.style.display='none'">
+        {% endif %}
+      </a>
+      <button class="mode-toggle profile-mode-toggle" type="button" aria-label="切换深色或浅色主题" title="切换深色 / 浅色主题">
+        <span class="theme-ripple" aria-hidden="true"></span>
+        <i class="fas fa-sun" aria-hidden="true"></i>
+        <span class="sr-only">切换深色或浅色主题</span>
+      </button>
+    </div>
+
+    <div class="site-title"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></div>
+    <div class="site-subtitle font-italic">{{ site.tagline }}</div>
+  </div><!-- .profile-wrapper -->
+
+  <ul class="w-100">
+    <li class="nav-item{% if page.layout == 'home' %} active{% endif %}">
+      <a href="{{ '/' | relative_url }}" class="nav-link">
+        <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i>
+        <span>{{ site.data.locales[site.lang].tabs.home | upcase }}</span>
+      </a>
+    </li>
+    {% for tab in site.tabs %}
+    <li class="nav-item{% if tab.url == page.url %} active{% endif %}">
+      <a href="{{ tab.url | relative_url }}" class="nav-link">
+        <i class="fa-fw {{ tab.icon }} ml-xl-3 mr-xl-3 unloaded"></i>
+        {% capture tab_name %}{{ tab.url | split: '/' }}{% endcapture %}
+        <span>{{ site.data.locales[site.lang].tabs.[tab_name] | default: tab.title | upcase }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul><!-- .nav -->
+
+  <div class="sidebar-bottom mt-auto d-flex flex-wrap justify-content-center align-items-center">
+    {% for entry in site.data.contact %}
+      {% case entry.type %}
+        {% when 'github', 'twitter' %}
+          {%- capture url -%}https://{{ entry.type }}.com/{{ site[entry.type].username }}{%- endcapture -%}
+        {% when 'email' %}
+          {% assign email = site.social.email | split: '@' %}
+          {% capture url %}javascript:location.href = 'mailto:' + ['{{ email[0] }}','{{ email[1] }}'].join('@'){% endcapture %}
+        {% when 'rss' %}
+          {% assign url = '/feed.xml' | relative_url %}
+        {% else %}
+          {% assign url = entry.url %}
+      {% endcase %}
+      {% if url %}
+      <a href="{{ url }}" aria-label="{{ entry.type }}"{% unless entry.noblank %} target="_blank" rel="noopener noreferrer"{% endunless %}>
+        <i class="{{ entry.icon }}"></i>
+      </a>
+      {% endif %}
+    {% endfor %}
+  </div><!-- .sidebar-bottom -->
+</div><!-- #sidebar -->
+
+<script>
+  (() => {
+    const syncThemeIcon = () => {
+      const button = document.querySelector('.profile-mode-toggle');
+      if (!button) return;
+      const isDark = document.documentElement.dataset.mode === 'dark'
+        || (!document.documentElement.dataset.mode && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      /* Keep an explicit DOM value even when Chirpy follows the system mode.
+         The custom parchment palette needs this concrete value for both themes. */
+      document.documentElement.dataset.mode = isDark ? 'dark' : 'light';
+      const icon = button.querySelector('i');
+      icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+      button.setAttribute('aria-label', isDark ? '切换为浅色主题' : '切换为深色主题');
+      button.title = isDark ? '切换为浅色主题' : '切换为深色主题';
+    };
+
+    document.addEventListener('click', (event) => {
+      const button = event.target.closest('.profile-mode-toggle');
+      if (!button) return;
+      /* Handle this control in capture phase so it works even when the
+         theme's optional jQuery bundle is delayed or unavailable. */
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      const ripple = button.querySelector('.theme-ripple');
+      const rect = button.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height) * 2.4;
+      ripple.style.width = `${size}px`;
+      ripple.style.height = `${size}px`;
+      ripple.style.left = `${event.clientX - rect.left - size / 2}px`;
+      ripple.style.top = `${event.clientY - rect.top - size / 2}px`;
+      ripple.classList.remove('is-active');
+      void ripple.offsetWidth;
+      ripple.classList.add('is-active');
+      let switchedByTheme = false;
+      if (typeof modeToggle !== 'undefined') {
+        try {
+          modeToggle.flipMode();
+          switchedByTheme = true;
+        } catch (_) {
+          /* The CDN jQuery dependency can be unavailable on a weak network. */
+        }
+      }
+      if (!switchedByTheme) {
+        const next = document.documentElement.dataset.mode === 'dark' ? 'light' : 'dark';
+        document.documentElement.dataset.mode = next;
+        sessionStorage.setItem('mode', next);
+      }
+      window.setTimeout(syncThemeIcon, 32);
+    }, true);
+
+    window.addEventListener('message', (event) => {
+      if (event.data && event.data.direction === 'mode-toggle') syncThemeIcon();
+    });
+    syncThemeIcon();
+  })();
+</script>
