@@ -1170,3 +1170,50 @@ html[data-mode="light"] body:has(#page-tag) > footer a,
 html[data-mode="light"] body:has(#archives) > footer a,
 html[data-mode="light"] body:has(.resume-header) > footer a,
 html[data-mode="light"] body:has(.resume-viewer-heading) > footer a { color: #76541d !important; }
+
+/* Chirpy's tag and archive components carry a dark component background from
+   the custom destination styling.  Repaint those component layers as paper in
+   light mode so that only the destination accent changes, never the reading
+   surface. */
+html[data-mode="light"] #main:has(#tags) .tag,
+html[data-mode="light"] #main:has(#page-tag) .tag {
+  border-color: rgba(190, 105, 94, .66) !important;
+  background: linear-gradient(135deg, rgba(220, 129, 118, .13), rgba(255, 251, 245, .94) 58%) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .6), 0 .16rem .42rem rgba(131, 76, 61, .08) !important;
+}
+
+html[data-mode="light"] #tags .tag,
+html[data-mode="light"] #tags .tag span,
+html[data-mode="light"] #page-tag .tag,
+html[data-mode="light"] #page-tag .tag span { color: #7b413a !important; }
+
+html[data-mode="light"] #main:has(#tags) .tag:hover,
+html[data-mode="light"] #main:has(#page-tag) .tag:hover {
+  border-color: #c56e63 !important;
+  background: linear-gradient(135deg, rgba(220, 129, 118, .24), #fffaf4 68%) !important;
+  box-shadow: 0 .35rem .95rem rgba(185, 97, 85, .16) !important;
+}
+
+html[data-mode="light"] #main:has(#archives) .year {
+  border-color: rgba(71, 130, 145, .62) !important;
+  color: #315c68 !important;
+  background: linear-gradient(135deg, rgba(103, 168, 184, .27), rgba(239, 250, 249, .95) 68%) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .56), 0 .22rem .65rem rgba(49, 91, 101, .08) !important;
+}
+
+html[data-mode="light"] #archives ul li:nth-child(odd),
+html[data-mode="light"] #archives ul li:nth-child(even) {
+  background: linear-gradient(90deg, rgba(255, 252, 245, .95), rgba(239, 247, 245, .72), rgba(255, 252, 245, .95)) !important;
+}
+
+html[data-mode="light"] #archives ul li:hover {
+  background: linear-gradient(90deg, rgba(219, 239, 238, .72), rgba(255, 252, 245, .98)) !important;
+}
+
+html[data-mode="light"] #archives a { color: #315d6c !important; }
+html[data-mode="light"] #archives a:hover { color: #1e7688 !important; }
+html[data-mode="light"] #archives .date { color: #6b604d !important; }
+html[data-mode="light"] #archives ul li::before,
+html[data-mode="light"] #archives .year::before { background-color: rgba(92, 145, 157, .34) !important; }
+html[data-mode="light"] #archives a::before { background-color: #f7faf5 !important; box-shadow: 0 0 0 2px rgba(77, 137, 150, .46) !important; }
+html[data-mode="light"] #archives .year::after { background-color: #eef8f5 !important; border-color: #74aab4 !important; box-shadow: 0 0 0 2px rgba(91, 149, 160, .15) !important; }
