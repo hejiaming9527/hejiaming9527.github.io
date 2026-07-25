@@ -1,11 +1,11 @@
 <!--
-  Local sidebar override: keeps Chirpy navigation while placing the theme switch
-  beside the profile photo instead of in the lower utility area.
+  Local sidebar override: the profile photo itself is the theme switch.
 -->
 <div id="sidebar" class="d-flex flex-column align-items-end">
   <div class="profile-wrapper text-center">
     <div id="avatar">
-      <a href="{{ '/' | relative_url }}" class="mx-auto">
+      <button class="mode-toggle profile-mode-toggle" type="button" aria-label="切换深色或浅色主题" title="点击头像切换深色 / 浅色主题">
+        <span class="theme-ripple" aria-hidden="true"></span>
         {% if site.avatar != empty and site.avatar %}
           {% capture avatar_url %}
             {% if site.avatar contains '://' %}
@@ -16,13 +16,9 @@
               {{ site.avatar | relative_url }}
             {% endif %}
           {% endcapture %}
-          <img src="{{ avatar_url | strip }}" alt="何嘉明的头像" onerror="this.style.display='none'">
+          <img src="{{ avatar_url | strip }}" alt="何嘉明的头像；点击切换深色或浅色主题" onerror="this.style.display='none'">
         {% endif %}
-      </a>
-      <button class="mode-toggle profile-mode-toggle" type="button" aria-label="切换深色或浅色主题" title="切换深色 / 浅色主题">
-        <span class="theme-ripple" aria-hidden="true"></span>
-        <i class="fas fa-sun" aria-hidden="true"></i>
-        <span class="sr-only">切换深色或浅色主题</span>
+        <span class="sr-only">点击头像切换深色或浅色主题</span>
       </button>
     </div>
 
@@ -80,10 +76,8 @@
       /* Keep an explicit DOM value even when Chirpy follows the system mode.
          The custom parchment palette needs this concrete value for both themes. */
       document.documentElement.dataset.mode = isDark ? 'dark' : 'light';
-      const icon = button.querySelector('i');
-      icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
       button.setAttribute('aria-label', isDark ? '切换为浅色主题' : '切换为深色主题');
-      button.title = isDark ? '切换为浅色主题' : '切换为深色主题';
+      button.title = isDark ? '点击头像切换为浅色主题' : '点击头像切换为深色主题';
     };
 
     document.addEventListener('click', (event) => {

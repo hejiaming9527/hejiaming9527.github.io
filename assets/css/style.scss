@@ -567,7 +567,7 @@ code { overflow-wrap: anywhere; word-break: break-word; white-space: pre-wrap; }
   padding: .28rem;
 }
 
-#sidebar #avatar > a,
+#sidebar #avatar > .profile-mode-toggle,
 #sidebar #avatar img {
   display: block;
   width: 100% !important;
@@ -896,8 +896,7 @@ body:has(.resume-viewer-heading) > footer {
 
 @media (max-width: 760px) {
   #sidebar #avatar,
-  #sidebar #avatar > a,
-  #sidebar #avatar img { width: 4.8rem !important; height: 4.8rem !important; min-width: 4.8rem; min-height: 4.8rem; }
+  #sidebar #avatar > .profile-mode-toggle { width: 4.8rem !important; height: 4.8rem !important; min-width: 4.8rem; min-height: 4.8rem; }
 }
 
 /* About page skills: full information at a glance, no scrollable table. */
@@ -971,33 +970,33 @@ body:has(.resume-viewer-heading) > footer {
   content: none !important;
 }
 
-/* Theme control beside the avatar: a compact control with a visible ripple,
-   while Chirpy continues to own the actual mode state and persistence. */
-#sidebar #avatar { position: relative; overflow: visible; }
+/* The portrait itself is the theme control.  It has no separate badge or
+   lower control, leaving the profile area visually quiet. */
+#sidebar #avatar { position: relative; overflow: hidden; cursor: pointer; }
 #sidebar .profile-mode-toggle {
   position: absolute;
-  right: -2.35rem;
-  bottom: -.25rem;
-  display: grid;
-  place-items: center;
-  width: 2.1rem;
-  height: 2.1rem;
+  inset: .28rem;
+  display: block;
+  width: calc(100% - .56rem);
+  height: calc(100% - .56rem);
+  margin: 0;
+  padding: 0;
   overflow: hidden;
-  border: 1px solid rgba(202, 164, 94, .72);
+  border: 0;
   border-radius: 50%;
-  color: #e7cf97;
-  background: rgba(31, 31, 24, .94);
-  box-shadow: 0 .3rem .9rem rgba(0, 0, 0, .2);
+  background: transparent;
   cursor: pointer;
   isolation: isolate;
-  transition: transform .2s ease, border-color .2s ease, color .2s ease;
+  appearance: none;
+  transition: filter .2s ease, transform .2s ease;
 }
 
-#sidebar .profile-mode-toggle:hover { transform: translateY(-2px); border-color: #f0c96d; }
-#sidebar .profile-mode-toggle i { position: relative; z-index: 1; font-size: .82rem; }
+#sidebar .profile-mode-toggle:hover { filter: brightness(1.1) saturate(1.06); transform: scale(1.025); }
+#sidebar .profile-mode-toggle:focus-visible { outline: 2px solid #e5bc61; outline-offset: 3px; }
+#sidebar .profile-mode-toggle img { position: relative; z-index: 1; pointer-events: none; }
 #sidebar .theme-ripple {
   position: absolute;
-  z-index: 0;
+  z-index: 2;
   border-radius: 50%;
   pointer-events: none;
   transform: scale(0);
@@ -1034,10 +1033,7 @@ html[data-mode="light"] #sidebar .site-title,
 html[data-mode="light"] #sidebar .site-title a { color: #372b1a !important; }
 html[data-mode="light"] #sidebar .site-subtitle { color: #746148 !important; }
 html[data-mode="light"] #sidebar .profile-mode-toggle {
-  color: #60451c;
-  border-color: rgba(128, 94, 36, .7);
-  background: rgba(255, 250, 237, .94);
-  box-shadow: 0 .3rem .8rem rgba(83, 59, 21, .16);
+  background: transparent;
 }
 html[data-mode="light"] #sidebar .nav-link { border-bottom-color: rgba(119, 89, 40, .16); }
 html[data-mode="light"] #sidebar .nav-item .nav-link,
@@ -1112,7 +1108,15 @@ html[data-mode="light"] body:not(.portfolio-page) > footer {
 }
 
 @media (max-width: 760px) {
-  #sidebar .profile-mode-toggle { right: -1.8rem; bottom: -.15rem; }
+  #sidebar #avatar,
+  #sidebar #avatar > .profile-mode-toggle,
+  #sidebar #avatar img {
+    width: 4.8rem !important;
+    height: 4.8rem !important;
+    min-width: 4.8rem;
+    min-height: 4.8rem;
+  }
+  #sidebar #avatar > .profile-mode-toggle { inset: .28rem; width: calc(100% - .56rem) !important; height: calc(100% - .56rem) !important; min-width: 0; min-height: 0; }
 }
 
 /* Word-first resume page: keep the editable download prominent while offering
@@ -1140,3 +1144,29 @@ html[data-mode="light"] body:not(.portfolio-page) > footer {
   .skill-summary-grid { grid-template-columns: 1fr; }
   .skill-summary-card > p:not(.skill-summary-kicker) { min-height: auto; }
 }
+
+/* Keep light mode genuinely light all the way to the footer.  The destination
+   accent is retained as a translucent wash instead of a leftover dark panel. */
+html[data-mode="light"] body:not(.portfolio-page) > footer,
+html[data-mode="light"] body:has(#categories) > footer,
+html[data-mode="light"] body:has(.categories) > footer,
+html[data-mode="light"] body:has(#page-category) > footer,
+html[data-mode="light"] body:has(#tags) > footer,
+html[data-mode="light"] body:has(#page-tag) > footer,
+html[data-mode="light"] body:has(#archives) > footer,
+html[data-mode="light"] body:has(.resume-header) > footer,
+html[data-mode="light"] body:has(.resume-viewer-heading) > footer {
+  color: #5f5139 !important;
+  background: linear-gradient(90deg, rgba(173, 137, 70, .17), rgba(255, 251, 241, .65) 48%, rgba(173, 137, 70, .11)), #ece1ca !important;
+  box-shadow: inset 0 3px 0 #b18b4d, 0 -6px 18px rgba(101, 76, 34, .07) !important;
+}
+
+html[data-mode="light"] body:not(.portfolio-page) > footer a,
+html[data-mode="light"] body:has(#categories) > footer a,
+html[data-mode="light"] body:has(.categories) > footer a,
+html[data-mode="light"] body:has(#page-category) > footer a,
+html[data-mode="light"] body:has(#tags) > footer a,
+html[data-mode="light"] body:has(#page-tag) > footer a,
+html[data-mode="light"] body:has(#archives) > footer a,
+html[data-mode="light"] body:has(.resume-header) > footer a,
+html[data-mode="light"] body:has(.resume-viewer-heading) > footer a { color: #76541d !important; }
