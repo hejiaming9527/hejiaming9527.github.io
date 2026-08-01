@@ -9,9 +9,3 @@
   title: 个人博客改版上线
   summary: 完成项目经历、电子简历、深浅色主题、栏目跳转与 GitHub Pages 部署的第一版整合。
   url: /posts/blog-refresh-and-maintenance/
-
-- date: 2026-07-18
-  type: 学习实践
-  title: 网页数据抓取与可视化复盘
-  summary: 整理公开网页数据的提取、清洗、统计、图表输出及异常记录流程。
-  url: /posts/web-data-scraping-visualization/

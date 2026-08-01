@@ -34,7 +34,7 @@
       </a>
     </li>
     {% for tab in site.tabs %}
-    <li class="nav-item{% if tab.url == page.url %} active{% endif %}">
+    <li class="nav-item{% if tab.url == page.url %} active{% endif %}{% if tab.url == '/timeline/' %} timeline-nav-item{% endif %}">
       <a href="{{ tab.url | relative_url }}" class="nav-link">
         <i class="fa-fw {{ tab.icon }} ml-xl-3 mr-xl-3 unloaded"></i>
         {% capture tab_name %}{{ tab.url | split: '/' }}{% endcapture %}
@@ -42,12 +42,6 @@
       </a>
     </li>
     {% endfor %}
-    <li class="nav-item timeline-nav-item">
-      <a href="{{ '/#activity' | relative_url }}" class="nav-link">
-        <i class="fa-fw fas fa-clock ml-xl-3 mr-xl-3 unloaded"></i>
-        <span>时间线</span>
-      </a>
-    </li>
   </ul><!-- .nav -->
 
   <div class="sidebar-bottom mt-auto d-flex flex-wrap justify-content-center align-items-center">

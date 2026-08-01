@@ -1,0 +1,34 @@
+- date: 2026-08-01
+  type: UI / 响应式
+  title: 修正首页时间线卡片在缩放下的布局
+  detail: 将日期从卡片外侧绝对定位移入卡片元信息区，时间线改为固定窄轨道与自适应卡片，避免笔记本浏览器缩放时日期被挤成竖排；同步补齐侧边栏导航宽度约束。
+  scope: 首页与侧边栏
+  url: /#activity
+
+- date: 2026-07-31
+  type: 主题系统
+  title: 完成深浅色主题的统一校准
+  detail: 重新检查浅色模式顶栏、归档、文章尾部、右侧最近更新和热门标签的颜色层级，让卡片边框、文字和悬停状态在两种主题下保持可读。
+  scope: 全站样式
+  url: /archives/
+
+- date: 2026-07-30
+  type: 信息架构
+  title: 清理文章尾部冗余信息
+  detail: 移除作者阅读时长、许可证分享区和 Jekyll/Chirpy 推广文案，保留分类、标签与相关文章入口，让 HR 浏览项目内容时路径更短。
+  scope: 文章模板
+  url: /posts/first-post/
+
+- date: 2026-07-29
+  type: 项目展示
+  title: 项目经历按时间倒序重排
+  detail: 将博客改版、数据整理、STM32 音频播放器、CNN 数字识别和 NS4225 功放项目按新到旧排列，并明确课程设计均为小组合作。
+  scope: 项目经历
+  url: /#projects
+
+- date: 2026-07-25
+  type: 个人项目
+  title: 个人博客改版上线
+  detail: 建立项目详情页、电子简历入口、分类标签体系和 GitHub Pages 自动部署流程，形成可持续维护的个人作品展示入口。
+  scope: 博客基础设施
+  url: /posts/blog-refresh-and-maintenance/
