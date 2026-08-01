@@ -50,7 +50,8 @@ tail_includes:
   <div class="post-tags">
     <i class="fa fa-tags fa-fw mr-1"></i>
     {% for tag in page.tags %}
-    <a href="{{ '/tags/' | append: tag | slugify | url_encode | append: '/' | relative_url }}" class="post-tag no-text-decoration">{{ tag }}</a>
+    {% assign tag_path = tag | slugify | url_encode %}
+    <a href="{{ '/tags/' | append: tag_path | append: '/' | relative_url }}" class="post-tag no-text-decoration">{{ tag }}</a>
     {% endfor %}
   </div>
   {% endif %}
