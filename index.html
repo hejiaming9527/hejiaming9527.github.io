@@ -31,10 +31,12 @@ title: 首页
   <div class="portfolio-activity-timeline">
     {% for update in site.data.project_updates limit: 3 %}
     <article class="portfolio-activity-item">
-      <time datetime="{{ update.date }}">{{ update.date | date: "%Y.%m.%d" }}</time>
       <div class="portfolio-activity-dot" aria-hidden="true"></div>
       <div class="portfolio-activity-content">
-        <span>{{ update.type }}</span>
+        <div class="portfolio-activity-meta">
+          <time datetime="{{ update.date }}">{{ update.date | date: "%Y.%m.%d" }}</time>
+          <span>{{ update.type }}</span>
+        </div>
         <h3><a href="{{ update.url | relative_url }}">{{ update.title }}</a></h3>
         <p>{{ update.summary }}</p>
       </div>
