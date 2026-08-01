@@ -25,8 +25,26 @@ title: 首页
   </div>
 </section>
 
+<section class="portfolio-section portfolio-activity-section" id="activity">
+  <div class="section-heading"><p><span>01</span> LIVE UPDATES</p><h2>进行中的记录</h2><div></div></div>
+  <p class="section-note">像动态流一样记录项目推进、博客维护与学习复盘；新内容会按日期置顶。</p>
+  <div class="portfolio-activity-timeline">
+    {% for update in site.data.project_updates limit: 3 %}
+    <article class="portfolio-activity-item">
+      <time datetime="{{ update.date }}">{{ update.date | date: "%Y.%m.%d" }}</time>
+      <div class="portfolio-activity-dot" aria-hidden="true"></div>
+      <div class="portfolio-activity-content">
+        <span>{{ update.type }}</span>
+        <h3><a href="{{ update.url | relative_url }}">{{ update.title }}</a></h3>
+        <p>{{ update.summary }}</p>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
 <section class="portfolio-section" id="profile">
-  <div class="section-heading"><p><span>01</span> PROFILE</p><h2>现在的我</h2><div></div></div>
+  <div class="section-heading"><p><span>02</span> PROFILE</p><h2>现在的我</h2><div></div></div>
   <div class="capability-grid">
     <article class="capability-card">
       <i class="fas fa-microchip"></i><h3>嵌入式开发</h3>
@@ -52,25 +70,25 @@ title: 首页
 </section>
 
 <section class="portfolio-section" id="projects">
-  <div class="section-heading"><p><span>02</span> PROJECTS</p><h2>项目经历</h2><div></div></div>
-  <p class="section-note">项目按时间从早到晚排列。课程设计均由小组合作完成，内容仅说明本人实际参与的技术工作。</p>
+  <div class="section-heading"><p><span>03</span> PROJECTS</p><h2>项目经历</h2><div></div></div>
+  <p class="section-note">项目按时间由晚到早排列。课程设计均由小组合作完成，内容仅说明本人实际参与的技术工作。</p>
   <div class="project-list">
-    <article class="project-card" id="project-amplifier">
+    <article class="project-card" id="project-blog-refresh">
       <div class="project-number">01</div><div class="project-content">
-        <div class="project-meta"><span>课程设计</span><span>小组合作</span><time>2023.05 - 2023.06</time></div>
-        <h3>高保真音频放大器硬件设计</h3>
-        <p>基于 NS4225 功放芯片，参与电路仿真、选型、BOM 成本控制、PCB 布局、焊接与整机调试。</p>
-        <div class="project-tags"><span>NS4225</span><span>Proteus</span><span>PCB</span><span>USB Audio</span></div>
-        <a class="project-link" href="{{ '/posts/ns4225-audio-amplifier/' | relative_url }}">查看项目详情 <i class="fas fa-arrow-right"></i></a>
+        <div class="project-meta"><span>个人项目</span><span>Web 开发</span><time>2026.07 - 至今</time></div>
+        <h3>个人博客改版与持续维护</h3>
+        <p>围绕求职展示重构博客的信息架构、项目页与主题系统；完成深浅色切换、响应式校验和 GitHub Pages 自动部署。</p>
+        <div class="project-tags"><span>Jekyll</span><span>Chirpy</span><span>SCSS</span><span>GitHub Pages</span></div>
+        <a class="project-link" href="{{ '/posts/blog-refresh-and-maintenance/' | relative_url }}">查看项目详情 <i class="fas fa-arrow-right"></i></a>
       </div>
     </article>
-    <article class="project-card" id="project-cnn">
+    <article class="project-card" id="project-web-data">
       <div class="project-number">02</div><div class="project-content">
-        <div class="project-meta"><span>课程设计</span><span>小组合作</span><time>2024.03 - 2024.04</time></div>
-        <h3>基于 CNN 的手写数字识别系统</h3>
-        <p>使用 Python 与 TensorFlow 搭建 CNN，参与数据处理、训练调优和 AlexNet 迁移学习实验。</p>
-        <div class="project-tags"><span>Python</span><span>TensorFlow</span><span>CNN</span><span>AlexNet</span></div>
-        <a class="project-link" href="{{ '/posts/cnn-handwritten-digits/' | relative_url }}">查看项目详情 <i class="fas fa-arrow-right"></i></a>
+        <div class="project-meta"><span>个人学习实践</span><span>Web 开发</span><time>2026.07</time></div>
+        <h3>网页数据抓取与可视化实践</h3>
+        <p>使用 Python 将公开网页信息转为结构化数据，完成清洗、统计分析、基础图表展示与异常记录。</p>
+        <div class="project-tags"><span>Python</span><span>网页抓取</span><span>Pandas</span><span>数据可视化</span></div>
+        <a class="project-link" href="{{ '/posts/web-data-scraping-visualization/' | relative_url }}">查看项目详情 <i class="fas fa-arrow-right"></i></a>
       </div>
     </article>
     <article class="project-card" id="project-stm32">
@@ -82,29 +100,29 @@ title: 首页
         <a class="project-link" href="{{ '/posts/stm32-smart-audio-player/' | relative_url }}">查看项目详情 <i class="fas fa-arrow-right"></i></a>
       </div>
     </article>
-    <article class="project-card" id="project-web-data">
+    <article class="project-card" id="project-cnn">
       <div class="project-number">04</div><div class="project-content">
-        <div class="project-meta"><span>个人学习实践</span><span>Web 开发</span><time>2026.07</time></div>
-        <h3>网页数据抓取与可视化实践</h3>
-        <p>使用 Python 将公开网页信息转为结构化数据，完成清洗、统计分析、基础图表展示与异常记录。</p>
-        <div class="project-tags"><span>Python</span><span>网页抓取</span><span>Pandas</span><span>数据可视化</span></div>
-        <a class="project-link" href="{{ '/posts/web-data-scraping-visualization/' | relative_url }}">查看项目详情 <i class="fas fa-arrow-right"></i></a>
+        <div class="project-meta"><span>课程设计</span><span>小组合作</span><time>2024.03 - 2024.04</time></div>
+        <h3>基于 CNN 的手写数字识别系统</h3>
+        <p>使用 Python 与 TensorFlow 搭建 CNN，参与数据处理、训练调优和 AlexNet 迁移学习实验。</p>
+        <div class="project-tags"><span>Python</span><span>TensorFlow</span><span>CNN</span><span>AlexNet</span></div>
+        <a class="project-link" href="{{ '/posts/cnn-handwritten-digits/' | relative_url }}">查看项目详情 <i class="fas fa-arrow-right"></i></a>
       </div>
     </article>
-    <article class="project-card" id="project-blog-refresh">
+    <article class="project-card" id="project-amplifier">
       <div class="project-number">05</div><div class="project-content">
-        <div class="project-meta"><span>个人项目</span><span>Web 开发</span><time>2026.07</time></div>
-        <h3>个人博客改版与持续维护</h3>
-        <p>围绕求职展示重构博客的信息架构、项目页与主题系统；完成深浅色切换、响应式校验和 GitHub Pages 自动部署。</p>
-        <div class="project-tags"><span>Jekyll</span><span>Chirpy</span><span>SCSS</span><span>GitHub Pages</span></div>
-        <a class="project-link" href="{{ '/posts/blog-refresh-and-maintenance/' | relative_url }}">查看项目详情 <i class="fas fa-arrow-right"></i></a>
+        <div class="project-meta"><span>课程设计</span><span>小组合作</span><time>2023.05 - 2023.06</time></div>
+        <h3>高保真音频放大器硬件设计</h3>
+        <p>基于 NS4225 功放芯片，参与电路仿真、选型、BOM 成本控制、PCB 布局、焊接与整机调试。</p>
+        <div class="project-tags"><span>NS4225</span><span>Proteus</span><span>PCB</span><span>USB Audio</span></div>
+        <a class="project-link" href="{{ '/posts/ns4225-audio-amplifier/' | relative_url }}">查看项目详情 <i class="fas fa-arrow-right"></i></a>
       </div>
     </article>
   </div>
 </section>
 
 <section class="portfolio-section experience-section">
-  <div class="section-heading"><p><span>03</span> EXPERIENCE</p><h2>工作与成长</h2><div></div></div>
+  <div class="section-heading"><p><span>04</span> EXPERIENCE</p><h2>工作与成长</h2><div></div></div>
   <div class="experience-card">
     <div class="experience-date">2025.06<br>—<br>2026.05</div>
     <div>

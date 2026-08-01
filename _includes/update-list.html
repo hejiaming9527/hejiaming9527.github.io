@@ -1,0 +1,18 @@
+<!-- Site-wide activity feed.  Add new items in _data/project_updates.yml. -->
+{% if site.data.project_updates.size > 0 %}
+  <section id="access-lastmod" class="post activity-panel" aria-label="最近动态">
+    <div class="panel-heading">最近动态</div>
+    <ol class="activity-list">
+      {% for update in site.data.project_updates limit: 4 %}
+      <li>
+        <time datetime="{{ update.date }}">{{ update.date | date: "%m.%d" }}</time>
+        <div>
+          <span>{{ update.type }}</span>
+          <a href="{{ update.url | relative_url }}">{{ update.title }}</a>
+          <p>{{ update.summary }}</p>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+{% endif %}
