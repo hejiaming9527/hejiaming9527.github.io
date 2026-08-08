@@ -762,17 +762,17 @@ body:has(#archives) > footer {
 body:has(#archives) > footer a { color: #82c5d3 !important; }
 
 body:has(.resume-header) #tail-wrapper {
-  border-color: rgba(135, 175, 121, .5) !important;
-  color: #c2d7b9 !important;
-  background: linear-gradient(90deg, rgba(135, 175, 121, .12), transparent 42%), #1a2119 !important;
+  border-color: rgba(177, 139, 67, .5) !important;
+  color: #dbc899 !important;
+  background: linear-gradient(90deg, rgba(177, 139, 67, .12), transparent 42%), #211d17 !important;
 }
-body:has(.resume-header) #tail-wrapper a { color: #a9d397 !important; }
+body:has(.resume-header) #tail-wrapper a { color: #ecc879 !important; }
 body:has(.resume-header) > footer {
-  border-color: rgba(135, 175, 121, .5) !important;
-  color: #c2d7b9 !important;
-  background: linear-gradient(90deg, rgba(135, 175, 121, .12), transparent 42%), #1a2119 !important;
+  border-color: rgba(177, 139, 67, .5) !important;
+  color: #dbc899 !important;
+  background: linear-gradient(90deg, rgba(177, 139, 67, .12), transparent 42%), #211d17 !important;
 }
-body:has(.resume-header) > footer a { color: #a9d397 !important; }
+body:has(.resume-header) > footer a { color: #ecc879 !important; }
 
 body:has(.resume-viewer-heading) #tail-wrapper {
   border-color: rgba(214, 170, 98, .5) !important;
@@ -813,8 +813,8 @@ body:has(#archives) > footer {
 }
 
 body:has(.resume-header) > footer {
-  background: linear-gradient(90deg, rgba(135, 175, 121, .27), rgba(135, 175, 121, .08) 52%, #1b2319 100%) !important;
-  box-shadow: inset 0 3px 0 #87af79, 0 -7px 20px rgba(135, 175, 121, .08);
+  background: linear-gradient(90deg, rgba(177, 139, 67, .27), rgba(177, 139, 67, .08) 52%, #252017 100%) !important;
+  box-shadow: inset 0 3px 0 #b18b4d, 0 -7px 20px rgba(177, 139, 67, .08);
 }
 
 body:has(.resume-viewer-heading) > footer {
@@ -866,7 +866,7 @@ body:has(.resume-viewer-heading) > footer {
 #main:has(#tags),
 #main:has(#page-tag) { --section-accent: #dc8176; --section-rgb: 220, 129, 118; }
 #main:has(#archives) { --section-accent: #67a8b8; --section-rgb: 103, 168, 184; }
-#main:has(.resume-header) { --section-accent: #87af79; --section-rgb: 135, 175, 121; }
+#main:has(.resume-header) { --section-accent: #b18b4d; --section-rgb: 177, 139, 67; }
 #main:has(.resume-viewer-heading) { --section-accent: #d6aa62; --section-rgb: 214, 170, 98; }
 
 #main:has(#categories) .card,
@@ -1357,8 +1357,8 @@ html[data-mode="light"] .portfolio-activity-content p { color: #665844; }
 }
 
 /* Standalone social-style project timeline. */
-.timeline-page { max-width: 900px; margin: 0 auto; }
-.social-timeline { position: relative; display: grid; gap: 1rem; max-width: 760px; margin: 1.4rem auto 0; }
+.timeline-page { max-width: 900px; margin: 0 auto; padding-top: 3.6rem; padding-bottom: 4.5rem; }
+.social-timeline { position: relative; display: grid; gap: 1rem; max-width: 760px; margin: 1.4rem auto 3.5rem; }
 .social-timeline::before { position: absolute; top: 1.6rem; bottom: 1.6rem; left: 1.15rem; width: 2px; background: linear-gradient(#45b7a7, rgba(69,183,167,.08)); content: ""; }
 .social-update-card { position: relative; display: grid; grid-template-columns: 2.3rem minmax(0,1fr); gap: .9rem; min-width: 0; }
 .social-update-avatar { position: relative; z-index: 1; display: grid; place-items: center; width: 2.3rem; height: 2.3rem; border: 1px solid #45b7a7; border-radius: 50%; color: #b9f0e5; background: #17302e; font-size: .65rem; font-weight: 700; letter-spacing: .05em; box-shadow: 0 0 0 5px rgba(69,183,167,.1); }
@@ -1383,8 +1383,8 @@ html[data-mode="light"] .social-update-body h2 a { color: #493d2b; }
 html[data-mode="light"] .social-update-body p { color: #665844; }
 html[data-mode="light"] .social-update-body footer a { color: #287f7a; }
 @media (max-width: 760px) {
-  .timeline-page { width: 100%; }
-  .social-timeline { margin-top: 1rem; }
+  .timeline-page { width: 100%; padding-top: 4.4rem; padding-bottom: 5.5rem; }
+  .social-timeline { margin-top: 1rem; margin-bottom: 4rem; }
   .social-update-card { grid-template-columns: 1.8rem minmax(0,1fr); gap: .65rem; }
   .social-update-avatar { width: 1.8rem; height: 1.8rem; font-size: .55rem; }
   .social-timeline::before { left: .9rem; }
