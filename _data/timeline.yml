@@ -1,3 +1,10 @@
+- date: 2026-08-18 16:05:23 +09:00
+  type: Life Matrix / AI 独立监督
+  title: 完成 V0.5 证据优先的独立监督审查
+  detail: 通过独立 AI 任务复核 V0.5 的验收文档、测试记录与多端截图，确认本地日终纪事、公开门禁和发送前确认等成果具备历史证据；同时发现冻结源码与有效版本历史缺失，现存回归脚本因后续界面文案漂移而无法直接复现，将其识别为证据治理风险，并形成版本锁定、对抗评测与受控远程验收建议。
+  scope: Life Matrix V0.5 独立审查
+  url: /posts/life-matrix-chronicle-ai-assisted-development/
+
 - date: 2026-08-18
   type: 求职作品集 / AI 协作
   title: 将两项 AI 协作项目同步到博客与简历

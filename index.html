@@ -29,7 +29,8 @@ title: 首页
   <div class="section-heading"><p><span>01</span> LIVE UPDATES</p><h2>进行中的记录</h2><div></div></div>
   <p class="section-note">像动态流一样记录项目推进、博客维护与学习复盘；新内容会按日期置顶。</p>
   <div class="portfolio-activity-timeline">
-    {% for update in site.data.project_updates limit: 3 %}
+    {% assign sorted_project_updates = site.data.project_updates | sort: "date" | reverse %}
+    {% for update in sorted_project_updates limit: 3 %}
     <article class="portfolio-activity-item">
       <div class="portfolio-activity-dot" aria-hidden="true"></div>
       <div class="portfolio-activity-content">
