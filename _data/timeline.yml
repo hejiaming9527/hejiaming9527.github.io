@@ -1,3 +1,94 @@
+- date: 2026-08-18
+  type: 求职作品集 / AI 协作
+  title: 将两项 AI 协作项目同步到博客与简历
+  detail: 新增 Life Matrix & Chronicle 和 B 站视频知识整理助手项目经历，明确 Codex 等工具的辅助范围、本人职责、验证证据与已知限制；博客改版项目同步标注 Codex 与 Gemini 的实际分工。
+  scope: 项目经历与电子简历
+  url: /posts/life-matrix-chronicle-ai-assisted-development/
+
+- date: 2026-08-15
+  type: Life Matrix / V0.8
+  title: 完成侦探工作板与日终草稿恢复闭环
+  detail: 增加卡片拖拽连线、可选择关系的 AI 分析、跨日期纪事历史、650ms 草稿缓存与公开博客 Feed；完成 48 项测试、19 张页面截图和桌面包桥接验收。
+  scope: Life Matrix & Chronicle
+  url: /posts/life-matrix-chronicle-ai-assisted-development/
+
+- date: 2026-08-13
+  type: Life Matrix / V0.7
+  title: 建立模型工具库与两阶段联网同意
+  detail: 新增九镜、Human 3.0、私人附件、版本化叙事笔记和受控 DeepSeek 网页研究；只有经过查询提交与来源使用两次确认的内容才进入分析。
+  scope: Life Matrix & Chronicle
+  url: /posts/life-matrix-chronicle-ai-assisted-development/
+
+- date: 2026-08-11
+  type: Life Matrix / V0.6
+  title: 引入不可变版本历史与安全 Provider 配置
+  detail: 为证据、日记、卡片和矩阵节点增加追加版本，补齐安全存储、系统托盘、单实例恢复与全局快速捕获，并完成桌面、平板和手机验收。
+  scope: Life Matrix & Chronicle
+  url: /posts/life-matrix-chronicle-ai-assisted-development/
+
+- date: 2026-08-10
+  type: Life Matrix / V0.4-V0.5
+  title: 从行动闭环扩展到可审计 AI 与日终纪事
+  detail: 上线带证据预览、引用校验和审计记录的 AI 实验室，加入海报/Widget Studio、日终纪事与私人/公开门禁；自动验证不使用真实付费 API。
+  scope: Life Matrix & Chronicle
+  url: /posts/life-matrix-chronicle-ai-assisted-development/
+
+- date: 2026-08-09
+  type: Life Matrix / M2
+  title: 完成矩阵、闪念卡、决策与时间块主流程
+  detail: 将生命矩阵扩展为 73 个稳定节点，补齐卡片双向链接、决策复盘、命令面板和可编辑时间块，并以真实 Chromium 流程验证刷新后的持久化结果。
+  scope: Life Matrix & Chronicle
+  url: /posts/life-matrix-chronicle-ai-assisted-development/
+
+- date: 2026-08-08
+  type: Life Matrix / M1
+  title: 建立本地优先数据与可靠性交付基线
+  detail: 完成串行乐观更新、事务写入、无损导入导出、真实数据可视化和 Windows 桌面包，数据库失败不再用示例数据或临时空工作区掩盖。
+  scope: Life Matrix & Chronicle
+  url: /posts/life-matrix-chronicle-ai-assisted-development/
+
+- date: 2026-08-08
+  type: B 站助手 / V1.2-V1.4
+  title: 增加数据审计、失败历史与版本化错误契约
+  detail: 对现有数据库与 Markdown 做只读健康检查，展示脱敏失败任务历史，并通过结构化错误码和兼容迁移为安全重试建立基础。
+  scope: B 站视频知识整理助手
+  url: /posts/bilibili-video-knowledge-assistant/
+
+- date: 2026-07-29
+  type: B 站助手 / V0.9-V1.1
+  title: 从关系候选推进到可检索的本地图谱
+  detail: 仅依据人工确认别名或共同来源生成可解释关系候选；用户确认后才进入交互式图谱，并进一步加入关键词检索、过滤和规模边界。
+  scope: B 站视频知识整理助手
+  url: /posts/bilibili-video-knowledge-assistant/
+
+- date: 2026-07-26
+  type: B 站助手 / V0.8
+  title: 给术语库增加人工治理状态
+  detail: 术语支持待确认、已确认和不收录，允许人工修改语境解释与别名；已确认内容不会被后续 AI 重跑覆盖，同义词候选不会自动合并。
+  scope: B 站视频知识整理助手
+  url: /posts/bilibili-video-knowledge-assistant/
+
+- date: 2026-07-25
+  type: B 站助手 / V0.5-V0.7
+  title: 建立转录质量闭环、学习档案与术语证据回链
+  detail: 加入人工纠错、双模型分歧、Prompt/Token 监控、标准化学习模块、完整迭代档案和带来源去重的术语卡。
+  scope: B 站视频知识整理助手
+  url: /posts/bilibili-video-knowledge-assistant/
+
+- date: 2026-07-20
+  type: B 站助手 / V0.5
+  title: 引入中文 ASR、热词与真实样本基准
+  detail: 增加 FunASR 中文转录、热词、时间戳和模型下载流程；基准报告保留剩余误识别，没有人工校对文本时不虚构 CER 或绝对准确率。
+  scope: B 站视频知识整理助手
+  url: /posts/bilibili-video-knowledge-assistant/
+
+- date: 2026-07-19
+  type: B 站助手 / 项目基线
+  title: 从网页数据整理启动本地视频知识流水线
+  detail: 将公开网页请求、解析与清洗经验扩展为 B 站链接处理、字幕/音频获取、结构化 Prompt 和本地 Markdown 输出的第一版工程流程。
+  scope: B 站视频知识整理助手
+  url: /posts/bilibili-video-knowledge-assistant/
+
 - date: 2026-08-01
   type: UI / 响应式
   title: 修正首页时间线卡片在缩放下的布局

@@ -20,7 +20,7 @@ title: 首页
   </div>
   <div class="hero-stats" aria-label="个人概况">
     <div><strong>2021 - 2025</strong><span>电子信息工程本科</span></div>
-    <div><strong>5 项</strong><span>项目实践经历</span></div>
+    <div><strong>6 项</strong><span>项目实践经历</span></div>
     <div><strong>1 年</strong><span>流程改进与现场协同</span></div>
   </div>
 </section>
@@ -75,17 +75,38 @@ title: 首页
   <div class="section-heading"><p><span>03</span> PROJECTS</p><h2>项目经历</h2><div></div></div>
   <p class="section-note">项目按时间由晚到早排列。课程设计均由小组合作完成，内容仅说明本人实际参与的技术工作。</p>
   <div class="project-list">
-    <article class="project-card" id="project-blog-refresh">
+    <article class="project-card" id="project-life-matrix">
       <div class="project-number">01</div><div class="project-content">
+        <div class="project-meta"><span>个人项目</span><span>AI 协作开发</span><time>2026.08 - 至今</time></div>
+        <h3>Life Matrix &amp; Chronicle</h3>
+        <p>从 0 到 1 构建本地优先的个人认知与行动工作台，覆盖生命矩阵、闪念卡、决策复盘、证据版本、日终纪事、可控 AI 分析与桌面交付。</p>
+        <p><strong>AI 协作：</strong>使用 Codex 辅助需求拆解、代码实现、回归测试与技术文档；产品边界、隐私规则、功能取舍和验收结论由本人制定并复核。</p>
+        <div class="project-tags"><span>Codex</span><span>React</span><span>TypeScript</span><span>Electron</span><span>Dexie</span></div>
+        <a class="project-link" href="{{ '/posts/life-matrix-chronicle-ai-assisted-development/' | relative_url }}">查看项目详情 <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </article>
+    <article class="project-card" id="project-bili-knowledge">
+      <div class="project-number">02</div><div class="project-content">
+        <div class="project-meta"><span>个人项目</span><span>AI 知识工程</span><time>2026.07 - 至今</time></div>
+        <h3>B 站视频知识整理助手</h3>
+        <p>由网页数据抓取与可视化实践演进为本地桌面工具，将公开视频链接处理为可追溯的摘要、标签、转录、术语卡和人工确认关系图。</p>
+        <p><strong>AI 协作：</strong>使用 Codex 辅助架构设计、Python/Electron 实现、测试与迭代归档；本人负责需求、合规边界、人工复核策略和功能验收。</p>
+        <div class="project-tags"><span>Codex</span><span>Python</span><span>Vue</span><span>Electron</span><span>SQLite</span></div>
+        <a class="project-link" href="{{ '/posts/bilibili-video-knowledge-assistant/' | relative_url }}">查看项目详情 <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </article>
+    <article class="project-card" id="project-blog-refresh">
+      <div class="project-number">03</div><div class="project-content">
         <div class="project-meta"><span>个人项目</span><span>Web 开发</span><time>2026.07 - 至今</time></div>
         <h3>个人博客改版与持续维护</h3>
         <p>围绕求职展示重构博客的信息架构、项目页与主题系统；完成深浅色切换、响应式校验和 GitHub Pages 自动部署。</p>
-        <div class="project-tags"><span>Jekyll</span><span>Chirpy</span><span>SCSS</span><span>GitHub Pages</span></div>
+        <p><strong>AI 协作：</strong>Codex 用于代码实现、调试和测试，Gemini 用于早期 UI 方向参考；需求取舍、内容校对和线上验收由本人完成。</p>
+        <div class="project-tags"><span>Jekyll</span><span>Chirpy</span><span>SCSS</span><span>GitHub Pages</span><span>Codex</span><span>Gemini</span></div>
         <a class="project-link" href="{{ '/posts/blog-refresh-and-maintenance/' | relative_url }}">查看项目详情 <i class="fas fa-arrow-right"></i></a>
       </div>
     </article>
     <article class="project-card" id="project-stm32">
-      <div class="project-number">03</div><div class="project-content">
+      <div class="project-number">04</div><div class="project-content">
         <div class="project-meta"><span>课程设计</span><span>小组合作</span><time>2024.05 - 2024.06</time></div>
         <h3>基于 STM32 的智能音频播放器系统</h3>
         <p>集成 STM32F103C8T6、SU-03T 离线语音模块与 OLED，参与 UART 通信、显示逻辑、功能联调与验证。</p>
@@ -94,7 +115,7 @@ title: 首页
       </div>
     </article>
     <article class="project-card" id="project-cnn">
-      <div class="project-number">04</div><div class="project-content">
+      <div class="project-number">05</div><div class="project-content">
         <div class="project-meta"><span>课程设计</span><span>小组合作</span><time>2024.03 - 2024.04</time></div>
         <h3>基于 CNN 的手写数字识别系统</h3>
         <p>使用 Python 与 TensorFlow 搭建 CNN，参与数据处理、训练调优和 AlexNet 迁移学习实验。</p>
@@ -103,7 +124,7 @@ title: 首页
       </div>
     </article>
     <article class="project-card" id="project-amplifier">
-      <div class="project-number">05</div><div class="project-content">
+      <div class="project-number">06</div><div class="project-content">
         <div class="project-meta"><span>课程设计</span><span>小组合作</span><time>2023.05 - 2023.06</time></div>
         <h3>高保真音频放大器硬件设计</h3>
         <p>基于 NS4225 功放芯片，参与电路仿真、选型、BOM 成本控制、PCB 布局、焊接与整机调试。</p>

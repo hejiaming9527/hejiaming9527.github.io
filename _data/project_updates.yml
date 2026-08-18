@@ -1,3 +1,21 @@
+- date: 2026-08-18
+  type: 求职作品集
+  title: AI 协作项目与简历同步
+  summary: 新增 Life Matrix 与 B 站视频知识助手，明确 AI 工具分工、本人职责、验证证据和限制。
+  url: /posts/life-matrix-chronicle-ai-assisted-development/
+
+- date: 2026-08-15
+  type: Life Matrix V0.8
+  title: 工作板、纪事与公开 Feed 闭环
+  summary: 完成卡片关系工作板、日终草稿恢复和仅公开内容的博客队列，并通过 48 项测试与桌面验收。
+  url: /posts/life-matrix-chronicle-ai-assisted-development/
+
+- date: 2026-08-08
+  type: B 站助手 V1.4
+  title: 数据健康与失败契约
+  summary: 为本地知识库增加只读审计、脱敏失败历史和结构化错误码，形成可追溯的维护基础。
+  url: /posts/bilibili-video-knowledge-assistant/
+
 - date: 2026-08-01
   type: 博客维护
   title: 主题与阅读体验校准
