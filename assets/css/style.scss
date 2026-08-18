@@ -533,20 +533,42 @@ body,
   word-break: break-word;
 }
 
-.content table,
-.post-content table {
+.content .table-wrapper > table,
+.post-content .table-wrapper > table {
   display: table;
   width: 100% !important;
   max-width: 100%;
-  table-layout: fixed;
+  table-layout: auto;
 }
 
-.content th,
-.content td,
-.post-content th,
-.post-content td,
+.content .table-wrapper > table th,
+.content .table-wrapper > table td,
+.post-content .table-wrapper > table th,
+.post-content .table-wrapper > table td {
+  overflow-wrap: anywhere;
+  word-break: normal;
+  white-space: normal;
+  vertical-align: top;
+  line-height: 1.65;
+}
+
+.content .table-wrapper > table th:first-child,
+.content .table-wrapper > table td:first-child,
+.post-content .table-wrapper > table th:first-child,
+.post-content .table-wrapper > table td:first-child {
+  width: 1%;
+  white-space: nowrap;
+}
+
 pre,
 code { overflow-wrap: anywhere; word-break: break-word; white-space: pre-wrap; }
+
+@media (max-width: 900px) {
+  .content .table-wrapper > table:has(tr > :nth-child(4)),
+  .post-content .table-wrapper > table:has(tr > :nth-child(4)) {
+    min-width: 48rem;
+  }
+}
 
 @media (max-width: 760px) {
   #sidebar::before,
@@ -1401,28 +1423,53 @@ html[data-mode="light"] .social-update-body footer a { color: #287f7a; }
 }
 #sidebar #avatar {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: center !important;
+  justify-content: center !important;
   width: 6.25rem;
   height: 6.25rem;
   margin-left: auto;
   margin-right: auto;
+  padding: 0;
   box-sizing: border-box;
 }
 #sidebar #avatar .profile-mode-toggle {
+  position: relative;
   display: flex;
+  inset: auto;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
-  padding: .3rem;
+  box-sizing: border-box;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0;
+  min-height: 0;
+  flex: 0 0 auto;
+  align-self: center !important;
+  margin: 0 !important;
+  padding: 0;
   border: 0;
   background: transparent;
+  transform: none;
 }
-#sidebar #avatar img {
+#sidebar #avatar .profile-mode-toggle:hover {
+  transform: none;
+}
+html[data-mode="light"] #sidebar #avatar,
+html[data-mode="dark"] #sidebar #avatar {
+  align-items: center !important;
+  justify-content: center !important;
+}
+html[data-mode="light"] #sidebar #avatar .profile-mode-toggle,
+html[data-mode="dark"] #sidebar #avatar .profile-mode-toggle {
+  align-self: center !important;
+  margin: 0 !important;
+}
+#sidebar #avatar .profile-mode-toggle img {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0;
+  min-height: 0;
   object-fit: cover;
   border-radius: 50%;
 }
